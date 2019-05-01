@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="bd_topModelStoreContainer" CdmEntityContainer="bd_top">
+    <EntitySetMapping Name="tb_area">
+      <EntityTypeMapping TypeName="bd_topModel.tb_area">
+        <MappingFragment StoreEntitySet="tb_area">
+          <ScalarProperty Name="area_in_id" ColumnName="area_in_id" />
+          <ScalarProperty Name="area_st_desc" ColumnName="area_st_desc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_curso">
+      <EntityTypeMapping TypeName="bd_topModel.tb_curso">
+        <MappingFragment StoreEntitySet="tb_curso">
+          <ScalarProperty Name="cur_in_id" ColumnName="cur_in_id" />
+          <ScalarProperty Name="areaCur_in_id" ColumnName="areaCur_in_id" />
+          <ScalarProperty Name="cur_st_nome" ColumnName="cur_st_nome" />
+          <ScalarProperty Name="cur_st_desc" ColumnName="cur_st_desc" />
+          <ScalarProperty Name="cur_st_duracao" ColumnName="cur_st_duracao" />
+          <ScalarProperty Name="cur_img_prof" ColumnName="cur_img_prof" />
+          <ScalarProperty Name="cur_st_tipo" ColumnName="cur_st_tipo" />
+          <ScalarProperty Name="cur_in_atribuidoNotaMec" ColumnName="cur_in_atribuidoNotaMec" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_detalhesResultado">
+      <EntityTypeMapping TypeName="bd_topModel.tb_detalhesResultado">
+        <MappingFragment StoreEntitySet="tb_detalhesResultado">
+          <ScalarProperty Name="userResult_in_id" ColumnName="userResult_in_id" />
+          <ScalarProperty Name="testResult_in_id" ColumnName="testResult_in_id" />
+          <ScalarProperty Name="curResult_in_id" ColumnName="curResult_in_id" />
+          <ScalarProperty Name="result_dt_tempo" ColumnName="result_dt_tempo" />
+          <ScalarProperty Name="result_re_pontosExatas" ColumnName="result_re_pontosExatas" />
+          <ScalarProperty Name="result_re_pontosHumanas" ColumnName="result_re_pontosHumanas" />
+          <ScalarProperty Name="result_re_pontosBiologicas" ColumnName="result_re_pontosBiologicas" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_faculdade">
+      <EntityTypeMapping TypeName="bd_topModel.tb_faculdade">
+        <MappingFragment StoreEntitySet="tb_faculdade">
+          <ScalarProperty Name="facul_in_id" ColumnName="facul_in_id" />
+          <ScalarProperty Name="facul_st_nome" ColumnName="facul_st_nome" />
+          <ScalarProperty Name="facul_st_endereco" ColumnName="facul_st_endereco" />
+          <ScalarProperty Name="facul_st_uf" ColumnName="facul_st_uf" />
+          <ScalarProperty Name="facul_st_estado" ColumnName="facul_st_estado" />
+          <ScalarProperty Name="facul_st_cidade" ColumnName="facul_st_cidade" />
+          <ScalarProperty Name="facul_st_site" ColumnName="facul_st_site" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_nivelAcademico">
+      <EntityTypeMapping TypeName="bd_topModel.tb_nivelAcademico">
+        <MappingFragment StoreEntitySet="tb_nivelAcademico">
+          <ScalarProperty Name="nivelAcad_in_id" ColumnName="nivelAcad_in_id" />
+          <ScalarProperty Name="nivelAcad_st_desc" ColumnName="nivelAcad_st_desc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_notaMec">
+      <EntityTypeMapping TypeName="bd_topModel.tb_notaMec">
+        <MappingFragment StoreEntitySet="tb_notaMec">
+          <ScalarProperty Name="notaMecFacul_in_id" ColumnName="notaMecFacul_in_id" />
+          <ScalarProperty Name="notaMecCur_in_id" ColumnName="notaMecCur_in_id" />
+          <ScalarProperty Name="notaMec_in_valor" ColumnName="notaMec_in_valor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_pergunta">
+      <EntityTypeMapping TypeName="bd_topModel.tb_pergunta">
+        <MappingFragment StoreEntitySet="tb_pergunta">
+          <ScalarProperty Name="perg_in_id" ColumnName="perg_in_id" />
+          <ScalarProperty Name="perg_st_desc" ColumnName="perg_st_desc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_resposta">
+      <EntityTypeMapping TypeName="bd_topModel.tb_resposta">
+        <MappingFragment StoreEntitySet="tb_resposta">
+          <ScalarProperty Name="resp_in_id" ColumnName="resp_in_id" />
+          <ScalarProperty Name="perg_in_id" ColumnName="perg_in_id" />
+          <ScalarProperty Name="resp_st_desc" ColumnName="resp_st_desc" />
+          <ScalarProperty Name="resp_re_resExatas" ColumnName="resp_re_resExatas" />
+          <ScalarProperty Name="resp_re_resHumanas" ColumnName="resp_re_resHumanas" />
+          <ScalarProperty Name="resp_re_resBiologicas" ColumnName="resp_re_resBiologicas" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_teste">
+      <EntityTypeMapping TypeName="bd_topModel.tb_teste">
+        <MappingFragment StoreEntitySet="tb_teste">
+          <ScalarProperty Name="teste_in_id" ColumnName="teste_in_id" />
+          <ScalarProperty Name="userTeste_in_id" ColumnName="userTeste_in_id" />
+          <ScalarProperty Name="teste_dt_inicio" ColumnName="teste_dt_inicio" />
+          <ScalarProperty Name="teste_dt_final" ColumnName="teste_dt_final" />
+          <ScalarProperty Name="teste_bool_novoTeste" ColumnName="teste_bool_novoTeste" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_tipoContato">
+      <EntityTypeMapping TypeName="bd_topModel.tb_tipoContato">
+        <MappingFragment StoreEntitySet="tb_tipoContato">
+          <ScalarProperty Name="tipoCont_in_id" ColumnName="tipoCont_in_id" />
+          <ScalarProperty Name="tipoCont_st_desc" ColumnName="tipoCont_st_desc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_tipoContatoFaculdade">
+      <EntityTypeMapping TypeName="bd_topModel.tb_tipoContatoFaculdade">
+        <MappingFragment StoreEntitySet="tb_tipoContatoFaculdade">
+          <ScalarProperty Name="tipoContFac_in_id" ColumnName="tipoContFac_in_id" />
+          <ScalarProperty Name="tipoContFac_st_nome" ColumnName="tipoContFac_st_nome" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_usuario">
+      <EntityTypeMapping TypeName="bd_topModel.tb_usuario">
+        <MappingFragment StoreEntitySet="tb_usuario">
+          <ScalarProperty Name="user_in_id" ColumnName="user_in_id" />
+          <ScalarProperty Name="user_st_nome" ColumnName="user_st_nome" />
+          <ScalarProperty Name="user_st_sexo" ColumnName="user_st_sexo" />
+          <ScalarProperty Name="user_dt_dtNasc" ColumnName="user_dt_dtNasc" />
+          <ScalarProperty Name="user_st_username" ColumnName="user_st_username" />
+          <ScalarProperty Name="user_st_senha" ColumnName="user_st_senha" />
+          <ScalarProperty Name="user_st_uf" ColumnName="user_st_uf" />
+          <ScalarProperty Name="user_st_cidade" ColumnName="user_st_cidade" />
+          <ScalarProperty Name="user_in_nivelAcad" ColumnName="user_in_nivelAcad" />
+          <ScalarProperty Name="user_dt_dtCad" ColumnName="user_dt_dtCad" />
+          <ScalarProperty Name="user_bool_fezTeste" ColumnName="user_bool_fezTeste" />
+          <ScalarProperty Name="user_img_avatar" ColumnName="user_img_avatar" />
+          <ScalarProperty Name="user_st_bio" ColumnName="user_st_bio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_contato">
+      <EntityTypeMapping TypeName="bd_topModel.tb_contato">
+        <MappingFragment StoreEntitySet="tb_contato">
+          <ScalarProperty Name="userCont_in_id" ColumnName="userCont_in_id" />
+          <ScalarProperty Name="tipoCont_in_id" ColumnName="tipoCont_in_id" />
+          <ScalarProperty Name="cont_st_desc" ColumnName="cont_st_desc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_contatoFaculdade">
+      <EntityTypeMapping TypeName="bd_topModel.tb_contatoFaculdade">
+        <MappingFragment StoreEntitySet="tb_contatoFaculdade">
+          <ScalarProperty Name="faculCont_in_id" ColumnName="faculCont_in_id" />
+          <ScalarProperty Name="tipoContFacul_in_id" ColumnName="tipoContFacul_in_id" />
+          <ScalarProperty Name="contFacul_st_desc" ColumnName="contFacul_st_desc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_email">
+      <EntityTypeMapping TypeName="bd_topModel.tb_email">
+        <MappingFragment StoreEntitySet="tb_email">
+          <ScalarProperty Name="userEmail_in_id" ColumnName="userEmail_in_id" />
+          <ScalarProperty Name="email_st_desc" ColumnName="email_st_desc" />
+          <ScalarProperty Name="email_bool_receberNoticias" ColumnName="email_bool_receberNoticias" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

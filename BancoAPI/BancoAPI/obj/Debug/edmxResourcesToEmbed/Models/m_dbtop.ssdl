@@ -1,0 +1,409 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="bd_topModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tb_area">
+    <Key>
+      <PropertyRef Name="area_in_id" />
+    </Key>
+    <Property Name="area_in_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="area_st_desc" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'bd_top.dbo.tb_avaliaSis' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tb_avaliaSis">
+          <Property Name="avalia_st_status" Type="text" />
+          <Property Name="avalia_st_desempenho" Type="text" />
+          <Property Name="avalia_st_tempoResp" Type="text" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'bd_top.dbo.tb_contato' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="tb_contato">
+    <Key>
+      <PropertyRef Name="userCont_in_id" />
+      <PropertyRef Name="tipoCont_in_id" />
+      <PropertyRef Name="cont_st_desc" />
+    </Key>
+    <Property Name="userCont_in_id" Type="int" Nullable="false" />
+    <Property Name="tipoCont_in_id" Type="int" Nullable="false" />
+    <Property Name="cont_st_desc" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'bd_top.dbo.tb_contatoFaculdade' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="tb_contatoFaculdade">
+    <Key>
+      <PropertyRef Name="faculCont_in_id" />
+      <PropertyRef Name="tipoContFacul_in_id" />
+      <PropertyRef Name="contFacul_st_desc" />
+    </Key>
+    <Property Name="faculCont_in_id" Type="int" Nullable="false" />
+    <Property Name="tipoContFacul_in_id" Type="int" Nullable="false" />
+    <Property Name="contFacul_st_desc" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_curso">
+    <Key>
+      <PropertyRef Name="cur_in_id" />
+    </Key>
+    <Property Name="cur_in_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="areaCur_in_id" Type="int" Nullable="false" />
+    <Property Name="cur_st_nome" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="cur_st_desc" Type="varchar(max)" Nullable="false" />
+    <Property Name="cur_st_duracao" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="cur_img_prof" Type="text" />
+    <Property Name="cur_st_tipo" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="cur_in_atribuidoNotaMec" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_detalhesResultado">
+    <Key>
+      <PropertyRef Name="userResult_in_id" />
+      <PropertyRef Name="testResult_in_id" />
+    </Key>
+    <Property Name="userResult_in_id" Type="int" Nullable="false" />
+    <Property Name="testResult_in_id" Type="int" Nullable="false" />
+    <Property Name="curResult_in_id" Type="int" Nullable="false" />
+    <Property Name="result_dt_tempo" Type="int" />
+    <Property Name="result_re_pontosExatas" Type="float" Nullable="false" />
+    <Property Name="result_re_pontosHumanas" Type="float" Nullable="false" />
+    <Property Name="result_re_pontosBiologicas" Type="float" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'bd_top.dbo.tb_email' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="tb_email">
+    <Key>
+      <PropertyRef Name="userEmail_in_id" />
+      <PropertyRef Name="email_st_desc" />
+    </Key>
+    <Property Name="userEmail_in_id" Type="int" Nullable="false" />
+    <Property Name="email_st_desc" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="email_bool_receberNoticias" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="tb_faculdade">
+    <Key>
+      <PropertyRef Name="facul_in_id" />
+    </Key>
+    <Property Name="facul_in_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="facul_st_nome" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="facul_st_endereco" Type="text" Nullable="false" />
+    <Property Name="facul_st_uf" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="facul_st_estado" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="facul_st_cidade" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="facul_st_site" Type="text" />
+  </EntityType>
+  <EntityType Name="tb_nivelAcademico">
+    <Key>
+      <PropertyRef Name="nivelAcad_in_id" />
+    </Key>
+    <Property Name="nivelAcad_in_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nivelAcad_st_desc" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_notaMec">
+    <Key>
+      <PropertyRef Name="notaMecFacul_in_id" />
+      <PropertyRef Name="notaMecCur_in_id" />
+    </Key>
+    <Property Name="notaMecFacul_in_id" Type="int" Nullable="false" />
+    <Property Name="notaMecCur_in_id" Type="int" Nullable="false" />
+    <Property Name="notaMec_in_valor" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_pergunta">
+    <Key>
+      <PropertyRef Name="perg_in_id" />
+    </Key>
+    <Property Name="perg_in_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="perg_st_desc" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_resposta">
+    <Key>
+      <PropertyRef Name="resp_in_id" />
+    </Key>
+    <Property Name="resp_in_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="perg_in_id" Type="int" Nullable="false" />
+    <Property Name="resp_st_desc" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="resp_re_resExatas" Type="float" Nullable="false" />
+    <Property Name="resp_re_resHumanas" Type="float" Nullable="false" />
+    <Property Name="resp_re_resBiologicas" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_teste">
+    <Key>
+      <PropertyRef Name="teste_in_id" />
+    </Key>
+    <Property Name="teste_in_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userTeste_in_id" Type="int" Nullable="false" />
+    <Property Name="teste_dt_inicio" Type="datetime" Nullable="false" />
+    <Property Name="teste_dt_final" Type="datetime" />
+    <Property Name="teste_bool_novoTeste" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_tipoContato">
+    <Key>
+      <PropertyRef Name="tipoCont_in_id" />
+    </Key>
+    <Property Name="tipoCont_in_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tipoCont_st_desc" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_tipoContatoFaculdade">
+    <Key>
+      <PropertyRef Name="tipoContFac_in_id" />
+    </Key>
+    <Property Name="tipoContFac_in_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tipoContFac_st_nome" Type="varchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_usuario">
+    <Key>
+      <PropertyRef Name="user_in_id" />
+    </Key>
+    <Property Name="user_in_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_st_nome" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="user_st_sexo" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="user_dt_dtNasc" Type="date" Nullable="false" />
+    <Property Name="user_st_username" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="user_st_senha" Type="varchar(max)" Nullable="false" />
+    <Property Name="user_st_uf" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="user_st_cidade" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="user_in_nivelAcad" Type="int" Nullable="false" />
+    <Property Name="user_dt_dtCad" Type="datetime" Nullable="false" />
+    <Property Name="user_bool_fezTeste" Type="tinyint" Nullable="false" />
+    <Property Name="user_img_avatar" Type="text" />
+    <Property Name="user_st_bio" Type="text" />
+  </EntityType>
+  <Association Name="FK_contato_tipoContato">
+    <End Role="tb_tipoContato" Type="Self.tb_tipoContato" Multiplicity="1" />
+    <End Role="tb_contato" Type="Self.tb_contato" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_tipoContato">
+        <PropertyRef Name="tipoCont_in_id" />
+      </Principal>
+      <Dependent Role="tb_contato">
+        <PropertyRef Name="tipoCont_in_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_contato_usuario">
+    <End Role="tb_usuario" Type="Self.tb_usuario" Multiplicity="1" />
+    <End Role="tb_contato" Type="Self.tb_contato" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_usuario">
+        <PropertyRef Name="user_in_id" />
+      </Principal>
+      <Dependent Role="tb_contato">
+        <PropertyRef Name="userCont_in_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_contatoFaculdade_faculdade">
+    <End Role="tb_faculdade" Type="Self.tb_faculdade" Multiplicity="1" />
+    <End Role="tb_contatoFaculdade" Type="Self.tb_contatoFaculdade" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_faculdade">
+        <PropertyRef Name="facul_in_id" />
+      </Principal>
+      <Dependent Role="tb_contatoFaculdade">
+        <PropertyRef Name="faculCont_in_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_contatoFaculdade_tipoContatoFaculdade">
+    <End Role="tb_tipoContatoFaculdade" Type="Self.tb_tipoContatoFaculdade" Multiplicity="1" />
+    <End Role="tb_contatoFaculdade" Type="Self.tb_contatoFaculdade" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_tipoContatoFaculdade">
+        <PropertyRef Name="tipoContFac_in_id" />
+      </Principal>
+      <Dependent Role="tb_contatoFaculdade">
+        <PropertyRef Name="tipoContFacul_in_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_detalhesResultado_curso">
+    <End Role="tb_curso" Type="Self.tb_curso" Multiplicity="1" />
+    <End Role="tb_detalhesResultado" Type="Self.tb_detalhesResultado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_curso">
+        <PropertyRef Name="cur_in_id" />
+      </Principal>
+      <Dependent Role="tb_detalhesResultado">
+        <PropertyRef Name="curResult_in_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_detalhesResultado_teste">
+    <End Role="tb_teste" Type="Self.tb_teste" Multiplicity="1" />
+    <End Role="tb_detalhesResultado" Type="Self.tb_detalhesResultado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_teste">
+        <PropertyRef Name="teste_in_id" />
+      </Principal>
+      <Dependent Role="tb_detalhesResultado">
+        <PropertyRef Name="testResult_in_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_detalhesResultado_usuario">
+    <End Role="tb_usuario" Type="Self.tb_usuario" Multiplicity="1" />
+    <End Role="tb_detalhesResultado" Type="Self.tb_detalhesResultado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_usuario">
+        <PropertyRef Name="user_in_id" />
+      </Principal>
+      <Dependent Role="tb_detalhesResultado">
+        <PropertyRef Name="userResult_in_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_email_usuario">
+    <End Role="tb_usuario" Type="Self.tb_usuario" Multiplicity="1" />
+    <End Role="tb_email" Type="Self.tb_email" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_usuario">
+        <PropertyRef Name="user_in_id" />
+      </Principal>
+      <Dependent Role="tb_email">
+        <PropertyRef Name="userEmail_in_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_notaMec_curso">
+    <End Role="tb_curso" Type="Self.tb_curso" Multiplicity="1" />
+    <End Role="tb_notaMec" Type="Self.tb_notaMec" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_curso">
+        <PropertyRef Name="cur_in_id" />
+      </Principal>
+      <Dependent Role="tb_notaMec">
+        <PropertyRef Name="notaMecCur_in_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_notaMec_faculdade">
+    <End Role="tb_faculdade" Type="Self.tb_faculdade" Multiplicity="1" />
+    <End Role="tb_notaMec" Type="Self.tb_notaMec" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_faculdade">
+        <PropertyRef Name="facul_in_id" />
+      </Principal>
+      <Dependent Role="tb_notaMec">
+        <PropertyRef Name="notaMecFacul_in_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_resp_perg">
+    <End Role="tb_pergunta" Type="Self.tb_pergunta" Multiplicity="1" />
+    <End Role="tb_resposta" Type="Self.tb_resposta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_pergunta">
+        <PropertyRef Name="perg_in_id" />
+      </Principal>
+      <Dependent Role="tb_resposta">
+        <PropertyRef Name="perg_in_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_teste_usuario">
+    <End Role="tb_usuario" Type="Self.tb_usuario" Multiplicity="1" />
+    <End Role="tb_teste" Type="Self.tb_teste" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_usuario">
+        <PropertyRef Name="user_in_id" />
+      </Principal>
+      <Dependent Role="tb_teste">
+        <PropertyRef Name="userTeste_in_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_usuario_nivelAcademico">
+    <End Role="tb_nivelAcademico" Type="Self.tb_nivelAcademico" Multiplicity="1" />
+    <End Role="tb_usuario" Type="Self.tb_usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_nivelAcademico">
+        <PropertyRef Name="nivelAcad_in_id" />
+      </Principal>
+      <Dependent Role="tb_usuario">
+        <PropertyRef Name="user_in_nivelAcad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="bd_topModelStoreContainer">
+    <EntitySet Name="tb_area" EntityType="Self.tb_area" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_curso" EntityType="Self.tb_curso" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_detalhesResultado" EntityType="Self.tb_detalhesResultado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_faculdade" EntityType="Self.tb_faculdade" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_nivelAcademico" EntityType="Self.tb_nivelAcademico" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_notaMec" EntityType="Self.tb_notaMec" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_pergunta" EntityType="Self.tb_pergunta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_resposta" EntityType="Self.tb_resposta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_teste" EntityType="Self.tb_teste" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_tipoContato" EntityType="Self.tb_tipoContato" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_tipoContatoFaculdade" EntityType="Self.tb_tipoContatoFaculdade" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_usuario" EntityType="Self.tb_usuario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_contato" EntityType="Self.tb_contato" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [tb_contato].[userCont_in_id] AS [userCont_in_id], 
+    [tb_contato].[tipoCont_in_id] AS [tipoCont_in_id], 
+    [tb_contato].[cont_st_desc] AS [cont_st_desc]
+    FROM [dbo].[tb_contato] AS [tb_contato]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="tb_contatoFaculdade" EntityType="Self.tb_contatoFaculdade" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [tb_contatoFaculdade].[faculCont_in_id] AS [faculCont_in_id], 
+    [tb_contatoFaculdade].[tipoContFacul_in_id] AS [tipoContFacul_in_id], 
+    [tb_contatoFaculdade].[contFacul_st_desc] AS [contFacul_st_desc]
+    FROM [dbo].[tb_contatoFaculdade] AS [tb_contatoFaculdade]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="tb_email" EntityType="Self.tb_email" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [tb_email].[userEmail_in_id] AS [userEmail_in_id], 
+    [tb_email].[email_st_desc] AS [email_st_desc], 
+    [tb_email].[email_bool_receberNoticias] AS [email_bool_receberNoticias]
+    FROM [dbo].[tb_email] AS [tb_email]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_contato_tipoContato" Association="Self.FK_contato_tipoContato">
+      <End Role="tb_tipoContato" EntitySet="tb_tipoContato" />
+      <End Role="tb_contato" EntitySet="tb_contato" />
+    </AssociationSet>
+    <AssociationSet Name="FK_contato_usuario" Association="Self.FK_contato_usuario">
+      <End Role="tb_usuario" EntitySet="tb_usuario" />
+      <End Role="tb_contato" EntitySet="tb_contato" />
+    </AssociationSet>
+    <AssociationSet Name="FK_contatoFaculdade_faculdade" Association="Self.FK_contatoFaculdade_faculdade">
+      <End Role="tb_faculdade" EntitySet="tb_faculdade" />
+      <End Role="tb_contatoFaculdade" EntitySet="tb_contatoFaculdade" />
+    </AssociationSet>
+    <AssociationSet Name="FK_contatoFaculdade_tipoContatoFaculdade" Association="Self.FK_contatoFaculdade_tipoContatoFaculdade">
+      <End Role="tb_tipoContatoFaculdade" EntitySet="tb_tipoContatoFaculdade" />
+      <End Role="tb_contatoFaculdade" EntitySet="tb_contatoFaculdade" />
+    </AssociationSet>
+    <AssociationSet Name="FK_detalhesResultado_curso" Association="Self.FK_detalhesResultado_curso">
+      <End Role="tb_curso" EntitySet="tb_curso" />
+      <End Role="tb_detalhesResultado" EntitySet="tb_detalhesResultado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_detalhesResultado_teste" Association="Self.FK_detalhesResultado_teste">
+      <End Role="tb_teste" EntitySet="tb_teste" />
+      <End Role="tb_detalhesResultado" EntitySet="tb_detalhesResultado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_detalhesResultado_usuario" Association="Self.FK_detalhesResultado_usuario">
+      <End Role="tb_usuario" EntitySet="tb_usuario" />
+      <End Role="tb_detalhesResultado" EntitySet="tb_detalhesResultado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_email_usuario" Association="Self.FK_email_usuario">
+      <End Role="tb_usuario" EntitySet="tb_usuario" />
+      <End Role="tb_email" EntitySet="tb_email" />
+    </AssociationSet>
+    <AssociationSet Name="FK_notaMec_curso" Association="Self.FK_notaMec_curso">
+      <End Role="tb_curso" EntitySet="tb_curso" />
+      <End Role="tb_notaMec" EntitySet="tb_notaMec" />
+    </AssociationSet>
+    <AssociationSet Name="FK_notaMec_faculdade" Association="Self.FK_notaMec_faculdade">
+      <End Role="tb_faculdade" EntitySet="tb_faculdade" />
+      <End Role="tb_notaMec" EntitySet="tb_notaMec" />
+    </AssociationSet>
+    <AssociationSet Name="FK_resp_perg" Association="Self.FK_resp_perg">
+      <End Role="tb_pergunta" EntitySet="tb_pergunta" />
+      <End Role="tb_resposta" EntitySet="tb_resposta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_teste_usuario" Association="Self.FK_teste_usuario">
+      <End Role="tb_usuario" EntitySet="tb_usuario" />
+      <End Role="tb_teste" EntitySet="tb_teste" />
+    </AssociationSet>
+    <AssociationSet Name="FK_usuario_nivelAcademico" Association="Self.FK_usuario_nivelAcademico">
+      <End Role="tb_nivelAcademico" EntitySet="tb_nivelAcademico" />
+      <End Role="tb_usuario" EntitySet="tb_usuario" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

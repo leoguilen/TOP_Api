@@ -1,0 +1,192 @@
+D:\Projetos C#\BancoAPI\BancoAPI\bin\BancoAPI.dll.config
+D:\Projetos C#\BancoAPI\BancoAPI\bin\BancoAPI.dll
+D:\Projetos C#\BancoAPI\BancoAPI\bin\BancoAPI.pdb
+D:\Projetos C#\BancoAPI\BancoAPI\bin\roslyn\csc.exe
+D:\Projetos C#\BancoAPI\BancoAPI\bin\roslyn\csc.exe.config
+D:\Projetos C#\BancoAPI\BancoAPI\bin\roslyn\csc.rsp
+D:\Projetos C#\BancoAPI\BancoAPI\bin\roslyn\csi.exe
+D:\Projetos C#\BancoAPI\BancoAPI\bin\roslyn\csi.exe.config
+D:\Projetos C#\BancoAPI\BancoAPI\bin\roslyn\csi.rsp
+D:\Projetos C#\BancoAPI\BancoAPI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Projetos C#\BancoAPI\BancoAPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Projetos C#\BancoAPI\BancoAPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Projetos C#\BancoAPI\BancoAPI\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Projetos C#\BancoAPI\BancoAPI\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\Projetos C#\BancoAPI\BancoAPI\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Projetos C#\BancoAPI\BancoAPI\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Projetos C#\BancoAPI\BancoAPI\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\Projetos C#\BancoAPI\BancoAPI\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\Projetos C#\BancoAPI\BancoAPI\bin\roslyn\Microsoft.Managed.Core.targets
+D:\Projetos C#\BancoAPI\BancoAPI\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Projetos C#\BancoAPI\BancoAPI\bin\roslyn\System.AppContext.dll
+D:\Projetos C#\BancoAPI\BancoAPI\bin\roslyn\System.Collections.Immutable.dll
+D:\Projetos C#\BancoAPI\BancoAPI\bin\roslyn\System.Console.dll
+D:\Projetos C#\BancoAPI\BancoAPI\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\Projetos C#\BancoAPI\BancoAPI\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\Projetos C#\BancoAPI\BancoAPI\bin\roslyn\System.IO.Compression.dll
+D:\Projetos C#\BancoAPI\BancoAPI\bin\roslyn\System.IO.FileSystem.dll
+D:\Projetos C#\BancoAPI\BancoAPI\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\Projetos C#\BancoAPI\BancoAPI\bin\roslyn\System.IO.Pipes.AccessControl.dll
+D:\Projetos C#\BancoAPI\BancoAPI\bin\roslyn\System.IO.Pipes.dll
+D:\Projetos C#\BancoAPI\BancoAPI\bin\roslyn\System.Reflection.Metadata.dll
+D:\Projetos C#\BancoAPI\BancoAPI\bin\roslyn\System.Security.AccessControl.dll
+D:\Projetos C#\BancoAPI\BancoAPI\bin\roslyn\System.Security.Claims.dll
+D:\Projetos C#\BancoAPI\BancoAPI\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\Projetos C#\BancoAPI\BancoAPI\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\Projetos C#\BancoAPI\BancoAPI\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\Projetos C#\BancoAPI\BancoAPI\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\Projetos C#\BancoAPI\BancoAPI\bin\roslyn\System.Security.Principal.Windows.dll
+D:\Projetos C#\BancoAPI\BancoAPI\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\Projetos C#\BancoAPI\BancoAPI\bin\roslyn\System.ValueTuple.dll
+D:\Projetos C#\BancoAPI\BancoAPI\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\Projetos C#\BancoAPI\BancoAPI\bin\roslyn\System.Xml.XmlDocument.dll
+D:\Projetos C#\BancoAPI\BancoAPI\bin\roslyn\System.Xml.XPath.dll
+D:\Projetos C#\BancoAPI\BancoAPI\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\Projetos C#\BancoAPI\BancoAPI\bin\roslyn\vbc.exe
+D:\Projetos C#\BancoAPI\BancoAPI\bin\roslyn\vbc.exe.config
+D:\Projetos C#\BancoAPI\BancoAPI\bin\roslyn\vbc.rsp
+D:\Projetos C#\BancoAPI\BancoAPI\bin\roslyn\VBCSCompiler.exe
+D:\Projetos C#\BancoAPI\BancoAPI\bin\roslyn\VBCSCompiler.exe.config
+D:\Projetos C#\BancoAPI\BancoAPI\bin\Antlr3.Runtime.dll
+D:\Projetos C#\BancoAPI\BancoAPI\bin\EntityFramework.dll
+D:\Projetos C#\BancoAPI\BancoAPI\bin\EntityFramework.SqlServer.dll
+D:\Projetos C#\BancoAPI\BancoAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Projetos C#\BancoAPI\BancoAPI\bin\Microsoft.Web.Infrastructure.dll
+D:\Projetos C#\BancoAPI\BancoAPI\bin\Newtonsoft.Json.dll
+D:\Projetos C#\BancoAPI\BancoAPI\bin\System.Net.Http.Formatting.dll
+D:\Projetos C#\BancoAPI\BancoAPI\bin\System.Web.Helpers.dll
+D:\Projetos C#\BancoAPI\BancoAPI\bin\System.Web.Http.dll
+D:\Projetos C#\BancoAPI\BancoAPI\bin\System.Web.Http.WebHost.dll
+D:\Projetos C#\BancoAPI\BancoAPI\bin\System.Web.Mvc.dll
+D:\Projetos C#\BancoAPI\BancoAPI\bin\System.Web.Optimization.dll
+D:\Projetos C#\BancoAPI\BancoAPI\bin\System.Web.Razor.dll
+D:\Projetos C#\BancoAPI\BancoAPI\bin\System.Web.WebPages.Deployment.dll
+D:\Projetos C#\BancoAPI\BancoAPI\bin\System.Web.WebPages.dll
+D:\Projetos C#\BancoAPI\BancoAPI\bin\System.Web.WebPages.Razor.dll
+D:\Projetos C#\BancoAPI\BancoAPI\bin\WebGrease.dll
+D:\Projetos C#\BancoAPI\BancoAPI\bin\EntityFramework.xml
+D:\Projetos C#\BancoAPI\BancoAPI\bin\EntityFramework.SqlServer.xml
+D:\Projetos C#\BancoAPI\BancoAPI\bin\Newtonsoft.Json.xml
+D:\Projetos C#\BancoAPI\BancoAPI\bin\System.Net.Http.Formatting.xml
+D:\Projetos C#\BancoAPI\BancoAPI\bin\System.Web.Helpers.xml
+D:\Projetos C#\BancoAPI\BancoAPI\bin\System.Web.Http.xml
+D:\Projetos C#\BancoAPI\BancoAPI\bin\System.Web.Http.WebHost.xml
+D:\Projetos C#\BancoAPI\BancoAPI\bin\System.Web.Mvc.xml
+D:\Projetos C#\BancoAPI\BancoAPI\bin\System.Web.Optimization.xml
+D:\Projetos C#\BancoAPI\BancoAPI\bin\System.Web.Razor.xml
+D:\Projetos C#\BancoAPI\BancoAPI\bin\System.Web.WebPages.xml
+D:\Projetos C#\BancoAPI\BancoAPI\bin\System.Web.WebPages.Deployment.xml
+D:\Projetos C#\BancoAPI\BancoAPI\bin\System.Web.WebPages.Razor.xml
+D:\Projetos C#\BancoAPI\BancoAPI\bin\Antlr3.Runtime.pdb
+D:\Projetos C#\BancoAPI\BancoAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Projetos C#\BancoAPI\BancoAPI\bin\pt-br\System.Net.Http.Formatting.resources.dll
+D:\Projetos C#\BancoAPI\BancoAPI\bin\pt-br\System.Web.Helpers.resources.dll
+D:\Projetos C#\BancoAPI\BancoAPI\bin\pt-br\System.Web.Http.resources.dll
+D:\Projetos C#\BancoAPI\BancoAPI\bin\pt-br\System.Web.Http.WebHost.resources.dll
+D:\Projetos C#\BancoAPI\BancoAPI\bin\pt-br\System.Web.Mvc.resources.dll
+D:\Projetos C#\BancoAPI\BancoAPI\bin\pt-br\System.Web.Optimization.resources.dll
+D:\Projetos C#\BancoAPI\BancoAPI\bin\pt-br\System.Web.Razor.resources.dll
+D:\Projetos C#\BancoAPI\BancoAPI\bin\pt-br\System.Web.WebPages.resources.dll
+D:\Projetos C#\BancoAPI\BancoAPI\bin\pt-br\System.Web.WebPages.Deployment.resources.dll
+D:\Projetos C#\BancoAPI\BancoAPI\bin\pt-br\System.Web.WebPages.Razor.resources.dll
+D:\Projetos C#\BancoAPI\BancoAPI\obj\Release\BancoAPI.csproj.CoreCompileInputs.cache
+D:\Projetos C#\BancoAPI\BancoAPI\obj\Release\BancoAPI.csproj.CopyComplete
+D:\Projetos C#\BancoAPI\BancoAPI\obj\Release\BancoAPI.dll
+D:\Projetos C#\BancoAPI\BancoAPI\obj\Release\BancoAPI.pdb
+D:\Projetos C#\BancoAPI\BancoAPI\obj\Release\BancoAPI.csprojAssemblyReference.cache
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\obj\Release\BancoAPI.csprojAssemblyReference.cache
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\obj\Release\BancoAPI.csproj.CoreCompileInputs.cache
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\obj\Release\BancoAPI.dll
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\obj\Release\BancoAPI.pdb
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\BancoAPI.dll.config
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\BancoAPI.dll
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\BancoAPI.pdb
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\roslyn\csc.exe
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\roslyn\csc.exe.config
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\roslyn\csc.rsp
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\roslyn\csi.exe
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\roslyn\csi.exe.config
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\roslyn\csi.rsp
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\roslyn\System.AppContext.dll
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\roslyn\System.Console.dll
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\roslyn\System.IO.Compression.dll
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\roslyn\System.IO.Pipes.AccessControl.dll
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\roslyn\System.IO.Pipes.dll
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\roslyn\System.Security.Claims.dll
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\roslyn\System.ValueTuple.dll
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\roslyn\System.Xml.XPath.dll
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\roslyn\vbc.exe
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\roslyn\vbc.exe.config
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\roslyn\vbc.rsp
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\roslyn\VBCSCompiler.exe
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\Antlr3.Runtime.dll
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\EntityFramework.dll
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\EntityFramework.SqlServer.dll
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\Newtonsoft.Json.dll
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\System.Net.Http.Formatting.dll
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\System.Web.Helpers.dll
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\System.Web.Http.dll
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\System.Web.Http.WebHost.dll
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\System.Web.Mvc.dll
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\System.Web.Optimization.dll
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\System.Web.Razor.dll
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\System.Web.WebPages.Deployment.dll
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\System.Web.WebPages.dll
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\System.Web.WebPages.Razor.dll
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\WebGrease.dll
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\EntityFramework.xml
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\EntityFramework.SqlServer.xml
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\Newtonsoft.Json.xml
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\System.Net.Http.Formatting.xml
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\System.Web.Helpers.xml
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\System.Web.Http.xml
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\System.Web.Http.WebHost.xml
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\System.Web.Mvc.xml
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\System.Web.Optimization.xml
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\System.Web.Razor.xml
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\System.Web.WebPages.xml
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\System.Web.WebPages.Deployment.xml
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\System.Web.WebPages.Razor.xml
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\Antlr3.Runtime.pdb
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\pt-br\System.Net.Http.Formatting.resources.dll
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\pt-br\System.Web.Helpers.resources.dll
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\pt-br\System.Web.Http.resources.dll
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\pt-br\System.Web.Http.WebHost.resources.dll
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\pt-br\System.Web.Mvc.resources.dll
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\pt-br\System.Web.Optimization.resources.dll
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\pt-br\System.Web.Razor.resources.dll
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\pt-br\System.Web.WebPages.resources.dll
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\pt-br\System.Web.WebPages.Deployment.resources.dll
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\bin\pt-br\System.Web.WebPages.Razor.resources.dll
+C:\Users\LGuilen\Documents\Arquivos Projeto\Projeto Faculdade\API\BancoAPI\BancoAPI\obj\Release\BancoAPI.csproj.CopyComplete

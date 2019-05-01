@@ -1,0 +1,1724 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="bd_topModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tb_area">
+          <Key>
+            <PropertyRef Name="area_in_id" />
+          </Key>
+          <Property Name="area_in_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="area_st_desc" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'bd_top.dbo.tb_contato' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="tb_contato">
+          <Key>
+            <PropertyRef Name="userCont_in_id" />
+            <PropertyRef Name="tipoCont_in_id" />
+            <PropertyRef Name="cont_st_desc" />
+          </Key>
+          <Property Name="userCont_in_id" Type="int" Nullable="false" />
+          <Property Name="tipoCont_in_id" Type="int" Nullable="false" />
+          <Property Name="cont_st_desc" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'bd_top.dbo.tb_contatoFaculdade' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="tb_contatoFaculdade">
+          <Key>
+            <PropertyRef Name="faculCont_in_id" />
+            <PropertyRef Name="tipoContFacul_in_id" />
+            <PropertyRef Name="contFacul_st_desc" />
+          </Key>
+          <Property Name="faculCont_in_id" Type="int" Nullable="false" />
+          <Property Name="tipoContFacul_in_id" Type="int" Nullable="false" />
+          <Property Name="contFacul_st_desc" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_curso">
+          <Key>
+            <PropertyRef Name="cur_in_id" />
+          </Key>
+          <Property Name="cur_in_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="areaCur_in_id" Type="int" Nullable="false" />
+          <Property Name="cur_st_nome" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="cur_st_desc" Type="varchar(max)" Nullable="false" />
+          <Property Name="cur_st_duracao" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="cur_img_prof" Type="text" />
+          <Property Name="cur_st_tipo" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="cur_in_atribuidoNotaMec" Type="tinyint" Nullable="false" />
+          <Property Name="cur_in_valorMin" Type="int" Nullable="false" />
+          <Property Name="cur_in_valorMax" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_detalhesResultado">
+          <Key>
+            <PropertyRef Name="userResult_in_id" />
+            <PropertyRef Name="testResult_in_id" />
+          </Key>
+          <Property Name="userResult_in_id" Type="int" Nullable="false" />
+          <Property Name="testResult_in_id" Type="int" Nullable="false" />
+          <Property Name="curResult_in_id" Type="int" Nullable="false" />
+          <Property Name="result_dt_tempo" Type="int" />
+          <Property Name="result_re_pontosExatas" Type="float" Nullable="false" />
+          <Property Name="result_re_pontosHumanas" Type="float" Nullable="false" />
+          <Property Name="result_re_pontosBiologicas" Type="float" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'bd_top.dbo.tb_email' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="tb_email">
+          <Key>
+            <PropertyRef Name="userEmail_in_id" />
+            <PropertyRef Name="email_st_desc" />
+          </Key>
+          <Property Name="userEmail_in_id" Type="int" Nullable="false" />
+          <Property Name="email_st_desc" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="email_bool_receberNoticias" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="tb_faculdade">
+          <Key>
+            <PropertyRef Name="facul_in_id" />
+          </Key>
+          <Property Name="facul_in_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="facul_st_nome" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="facul_st_endereco" Type="text" Nullable="false" />
+          <Property Name="facul_st_uf" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="facul_st_estado" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="facul_st_cidade" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="facul_st_site" Type="text" />
+        </EntityType>
+        <EntityType Name="tb_nivelAcademico">
+          <Key>
+            <PropertyRef Name="nivelAcad_in_id" />
+          </Key>
+          <Property Name="nivelAcad_in_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nivelAcad_st_desc" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_notaMec">
+          <Key>
+            <PropertyRef Name="notaMecFacul_in_id" />
+            <PropertyRef Name="notaMecCur_in_id" />
+          </Key>
+          <Property Name="notaMecFacul_in_id" Type="int" Nullable="false" />
+          <Property Name="notaMecCur_in_id" Type="int" Nullable="false" />
+          <Property Name="notaMec_in_valor" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_pergunta">
+          <Key>
+            <PropertyRef Name="perg_in_id" />
+          </Key>
+          <Property Name="perg_in_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="perg_st_desc" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_resposta">
+          <Key>
+            <PropertyRef Name="resp_in_id" />
+          </Key>
+          <Property Name="resp_in_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="perg_in_id" Type="int" Nullable="false" />
+          <Property Name="resp_st_desc" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="resp_re_resExatas" Type="float" Nullable="false" />
+          <Property Name="resp_re_resHumanas" Type="float" Nullable="false" />
+          <Property Name="resp_re_resBiologicas" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_teste">
+          <Key>
+            <PropertyRef Name="teste_in_id" />
+          </Key>
+          <Property Name="teste_in_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userTeste_in_id" Type="int" Nullable="false" />
+          <Property Name="teste_dt_inicio" Type="datetime" Nullable="false" />
+          <Property Name="teste_dt_final" Type="datetime" />
+          <Property Name="teste_bool_novoTeste" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_tipoContato">
+          <Key>
+            <PropertyRef Name="tipoCont_in_id" />
+          </Key>
+          <Property Name="tipoCont_in_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tipoCont_st_desc" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_tipoContatoFaculdade">
+          <Key>
+            <PropertyRef Name="tipoContFac_in_id" />
+          </Key>
+          <Property Name="tipoContFac_in_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tipoContFac_st_nome" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_usuario">
+          <Key>
+            <PropertyRef Name="user_in_id" />
+          </Key>
+          <Property Name="user_in_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_st_nome" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="user_st_sexo" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="user_dt_dtNasc" Type="date" Nullable="false" />
+          <Property Name="user_st_username" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="user_st_senha" Type="varchar(max)" Nullable="false" />
+          <Property Name="user_st_uf" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="user_st_cidade" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="user_in_nivelAcad" Type="int" Nullable="false" />
+          <Property Name="user_dt_dtCad" Type="datetime" Nullable="false" />
+          <Property Name="user_bool_fezTeste" Type="tinyint" Nullable="false" />
+          <Property Name="user_img_avatar" Type="text" />
+          <Property Name="user_st_bio" Type="text" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'bd_top.dbo.v_RelatorioCurso' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_RelatorioCurso">
+          <Key>
+            <PropertyRef Name="id_curso" />
+            <PropertyRef Name="nome_curso" />
+            <PropertyRef Name="desc_curso" />
+            <PropertyRef Name="desc_area" />
+            <PropertyRef Name="tipo_curso" />
+            <PropertyRef Name="duracao_curso" />
+          </Key>
+          <Property Name="id_curso" Type="int" Nullable="false" />
+          <Property Name="nome_curso" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="desc_curso" Type="varchar(max)" Nullable="false" />
+          <Property Name="desc_area" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="tipo_curso" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="imagem_curso" Type="text" />
+          <Property Name="duracao_curso" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'bd_top.dbo.v_relatorioFaculdades' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_relatorioFaculdades">
+          <Key>
+            <PropertyRef Name="id_facul" />
+            <PropertyRef Name="nome_facul" />
+            <PropertyRef Name="endereco_facul" />
+            <PropertyRef Name="uf_facul" />
+            <PropertyRef Name="estado_facul" />
+            <PropertyRef Name="cidade_facul" />
+            <PropertyRef Name="tipoContado_facul" />
+            <PropertyRef Name="contato_facul" />
+          </Key>
+          <Property Name="id_facul" Type="int" Nullable="false" />
+          <Property Name="nome_facul" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="endereco_facul" Type="text" Nullable="false" />
+          <Property Name="uf_facul" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="estado_facul" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="cidade_facul" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="tipoContado_facul" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="contato_facul" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="site_facul" Type="text" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'bd_top.dbo.v_relatorioNotaMec' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_relatorioNotaMec">
+          <Key>
+            <PropertyRef Name="id_facul" />
+            <PropertyRef Name="nome_facul" />
+            <PropertyRef Name="uf_facul" />
+            <PropertyRef Name="id_curso" />
+            <PropertyRef Name="nome_curso" />
+            <PropertyRef Name="desc_area" />
+            <PropertyRef Name="valor_notaMec" />
+          </Key>
+          <Property Name="id_facul" Type="int" Nullable="false" />
+          <Property Name="nome_facul" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="uf_facul" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="id_curso" Type="int" Nullable="false" />
+          <Property Name="nome_curso" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="desc_area" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="valor_notaMec" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'bd_top.dbo.v_RelatorioQuestoes' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_RelatorioQuestoes">
+          <Key>
+            <PropertyRef Name="id_pergunta" />
+            <PropertyRef Name="desc_pergunta" />
+            <PropertyRef Name="id_resposta" />
+            <PropertyRef Name="desc_resposta" />
+            <PropertyRef Name="perc_exatas" />
+            <PropertyRef Name="perc_humanas" />
+            <PropertyRef Name="perc_biologicas" />
+          </Key>
+          <Property Name="id_pergunta" Type="int" Nullable="false" />
+          <Property Name="desc_pergunta" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="id_resposta" Type="int" Nullable="false" />
+          <Property Name="desc_resposta" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="perc_exatas" Type="float" Nullable="false" />
+          <Property Name="perc_humanas" Type="float" Nullable="false" />
+          <Property Name="perc_biologicas" Type="float" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'bd_top.dbo.v_relatorioResultado' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_relatorioResultado">
+          <Key>
+            <PropertyRef Name="id_user" />
+            <PropertyRef Name="username_user" />
+            <PropertyRef Name="id_teste" />
+            <PropertyRef Name="inicio_teste" />
+            <PropertyRef Name="novo_teste" />
+            <PropertyRef Name="exatas_resultado" />
+            <PropertyRef Name="humanas_resultado" />
+            <PropertyRef Name="biologicas_resultado" />
+            <PropertyRef Name="nome_curso" />
+            <PropertyRef Name="desc_curso" />
+            <PropertyRef Name="tipo_curso" />
+            <PropertyRef Name="duracao_curso" />
+            <PropertyRef Name="desc_area" />
+            <PropertyRef Name="nome_facul" />
+            <PropertyRef Name="estado_facul" />
+            <PropertyRef Name="valor_notaMec" />
+          </Key>
+          <Property Name="id_user" Type="int" Nullable="false" />
+          <Property Name="username_user" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="id_teste" Type="int" Nullable="false" />
+          <Property Name="inicio_teste" Type="datetime" Nullable="false" />
+          <Property Name="final_teste" Type="datetime" />
+          <Property Name="novo_teste" Type="tinyint" Nullable="false" />
+          <Property Name="tempo_resultado" Type="int" />
+          <Property Name="exatas_resultado" Type="float" Nullable="false" />
+          <Property Name="humanas_resultado" Type="float" Nullable="false" />
+          <Property Name="biologicas_resultado" Type="float" Nullable="false" />
+          <Property Name="nome_curso" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="desc_curso" Type="varchar(max)" Nullable="false" />
+          <Property Name="tipo_curso" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="duracao_curso" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="desc_area" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="img_curso" Type="text" />
+          <Property Name="nome_facul" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="estado_facul" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="site_facul" Type="text" />
+          <Property Name="valor_notaMec" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'bd_top.dbo.v_relatorioUsuario' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_relatorioUsuario">
+          <Key>
+            <PropertyRef Name="id_user" />
+            <PropertyRef Name="nome_user" />
+            <PropertyRef Name="desc_email" />
+            <PropertyRef Name="sexo_user" />
+            <PropertyRef Name="nasc_user" />
+            <PropertyRef Name="username_user" />
+            <PropertyRef Name="uf_user" />
+            <PropertyRef Name="cidade_user" />
+            <PropertyRef Name="desc_nivelAcad" />
+            <PropertyRef Name="desc_tipoCont" />
+            <PropertyRef Name="desc_cont" />
+            <PropertyRef Name="dtCad_user" />
+            <PropertyRef Name="teste_user" />
+          </Key>
+          <Property Name="id_user" Type="int" Nullable="false" />
+          <Property Name="nome_user" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="desc_email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="sexo_user" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="nasc_user" Type="date" Nullable="false" />
+          <Property Name="username_user" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="uf_user" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="cidade_user" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="desc_nivelAcad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="desc_tipoCont" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="desc_cont" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="dtCad_user" Type="datetime" Nullable="false" />
+          <Property Name="teste_user" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_contato_tipoContato">
+          <End Role="tb_tipoContato" Type="Self.tb_tipoContato" Multiplicity="1" />
+          <End Role="tb_contato" Type="Self.tb_contato" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_tipoContato">
+              <PropertyRef Name="tipoCont_in_id" />
+            </Principal>
+            <Dependent Role="tb_contato">
+              <PropertyRef Name="tipoCont_in_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_contato_usuario">
+          <End Role="tb_usuario" Type="Self.tb_usuario" Multiplicity="1" />
+          <End Role="tb_contato" Type="Self.tb_contato" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_usuario">
+              <PropertyRef Name="user_in_id" />
+            </Principal>
+            <Dependent Role="tb_contato">
+              <PropertyRef Name="userCont_in_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_contatoFaculdade_faculdade">
+          <End Role="tb_faculdade" Type="Self.tb_faculdade" Multiplicity="1" />
+          <End Role="tb_contatoFaculdade" Type="Self.tb_contatoFaculdade" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_faculdade">
+              <PropertyRef Name="facul_in_id" />
+            </Principal>
+            <Dependent Role="tb_contatoFaculdade">
+              <PropertyRef Name="faculCont_in_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_contatoFaculdade_tipoContatoFaculdade">
+          <End Role="tb_tipoContatoFaculdade" Type="Self.tb_tipoContatoFaculdade" Multiplicity="1" />
+          <End Role="tb_contatoFaculdade" Type="Self.tb_contatoFaculdade" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_tipoContatoFaculdade">
+              <PropertyRef Name="tipoContFac_in_id" />
+            </Principal>
+            <Dependent Role="tb_contatoFaculdade">
+              <PropertyRef Name="tipoContFacul_in_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_detalhesResultado_curso">
+          <End Role="tb_curso" Type="Self.tb_curso" Multiplicity="1" />
+          <End Role="tb_detalhesResultado" Type="Self.tb_detalhesResultado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_curso">
+              <PropertyRef Name="cur_in_id" />
+            </Principal>
+            <Dependent Role="tb_detalhesResultado">
+              <PropertyRef Name="curResult_in_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_detalhesResultado_teste">
+          <End Role="tb_teste" Type="Self.tb_teste" Multiplicity="1" />
+          <End Role="tb_detalhesResultado" Type="Self.tb_detalhesResultado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_teste">
+              <PropertyRef Name="teste_in_id" />
+            </Principal>
+            <Dependent Role="tb_detalhesResultado">
+              <PropertyRef Name="testResult_in_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_detalhesResultado_usuario">
+          <End Role="tb_usuario" Type="Self.tb_usuario" Multiplicity="1" />
+          <End Role="tb_detalhesResultado" Type="Self.tb_detalhesResultado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_usuario">
+              <PropertyRef Name="user_in_id" />
+            </Principal>
+            <Dependent Role="tb_detalhesResultado">
+              <PropertyRef Name="userResult_in_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_email_usuario">
+          <End Role="tb_usuario" Type="Self.tb_usuario" Multiplicity="1" />
+          <End Role="tb_email" Type="Self.tb_email" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_usuario">
+              <PropertyRef Name="user_in_id" />
+            </Principal>
+            <Dependent Role="tb_email">
+              <PropertyRef Name="userEmail_in_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_notaMec_curso">
+          <End Role="tb_curso" Type="Self.tb_curso" Multiplicity="1" />
+          <End Role="tb_notaMec" Type="Self.tb_notaMec" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_curso">
+              <PropertyRef Name="cur_in_id" />
+            </Principal>
+            <Dependent Role="tb_notaMec">
+              <PropertyRef Name="notaMecCur_in_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_notaMec_faculdade">
+          <End Role="tb_faculdade" Type="Self.tb_faculdade" Multiplicity="1" />
+          <End Role="tb_notaMec" Type="Self.tb_notaMec" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_faculdade">
+              <PropertyRef Name="facul_in_id" />
+            </Principal>
+            <Dependent Role="tb_notaMec">
+              <PropertyRef Name="notaMecFacul_in_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_resp_perg">
+          <End Role="tb_pergunta" Type="Self.tb_pergunta" Multiplicity="1" />
+          <End Role="tb_resposta" Type="Self.tb_resposta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_pergunta">
+              <PropertyRef Name="perg_in_id" />
+            </Principal>
+            <Dependent Role="tb_resposta">
+              <PropertyRef Name="perg_in_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_teste_usuario">
+          <End Role="tb_usuario" Type="Self.tb_usuario" Multiplicity="1" />
+          <End Role="tb_teste" Type="Self.tb_teste" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_usuario">
+              <PropertyRef Name="user_in_id" />
+            </Principal>
+            <Dependent Role="tb_teste">
+              <PropertyRef Name="userTeste_in_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_usuario_nivelAcademico">
+          <End Role="tb_nivelAcademico" Type="Self.tb_nivelAcademico" Multiplicity="1" />
+          <End Role="tb_usuario" Type="Self.tb_usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_nivelAcademico">
+              <PropertyRef Name="nivelAcad_in_id" />
+            </Principal>
+            <Dependent Role="tb_usuario">
+              <PropertyRef Name="user_in_nivelAcad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="func_validaLogin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="varchar">
+          <Parameter Name="username" Type="varchar" Mode="In" />
+          <Parameter Name="senha" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_atualizaCadastro" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="puserId" Type="int" Mode="In" />
+          <Parameter Name="pemailDesc" Type="varchar" Mode="In" />
+          <Parameter Name="pnivelAcad" Type="int" Mode="In" />
+          <Parameter Name="pcidade" Type="varchar" Mode="In" />
+          <Parameter Name="puf" Type="char" Mode="In" />
+          <Parameter Name="pcontDescTel" Type="varchar" Mode="In" />
+          <Parameter Name="pcontDescCel" Type="varchar" Mode="In" />
+          <Parameter Name="pftuser" Type="text" Mode="In" />
+          <Parameter Name="pbio" Type="text" Mode="In" />
+        </Function>
+        <Function Name="sp_AtualizaCurso" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pIdCur" Type="int" Mode="In" />
+          <Parameter Name="pIdArea" Type="int" Mode="In" />
+          <Parameter Name="pNome" Type="varchar" Mode="In" />
+          <Parameter Name="pTipo" Type="char" Mode="In" />
+          <Parameter Name="pDuracao" Type="varchar" Mode="In" />
+          <Parameter Name="pDesc" Type="text" Mode="In" />
+        </Function>
+        <Function Name="sp_atualizaFaculdade" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pId" Type="int" Mode="In" />
+          <Parameter Name="pNome" Type="varchar" Mode="In" />
+          <Parameter Name="pEnd" Type="text" Mode="In" />
+          <Parameter Name="pUf" Type="char" Mode="In" />
+          <Parameter Name="pEstado" Type="varchar" Mode="In" />
+          <Parameter Name="pCidade" Type="varchar" Mode="In" />
+          <Parameter Name="pSite" Type="text" Mode="In" />
+          <Parameter Name="pEmail" Type="varchar" Mode="In" />
+          <Parameter Name="pTel" Type="varchar" Mode="In" />
+          <Parameter Name="pCel" Type="varchar" Mode="In" />
+          <Parameter Name="pFax" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_atualizarQuestao" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pIdPergunta" Type="int" Mode="In" />
+          <Parameter Name="pIdResposta" Type="int" Mode="In" />
+          <Parameter Name="pDescResp" Type="varchar" Mode="In" />
+          <Parameter Name="pPercExatas" Type="float" Mode="In" />
+          <Parameter Name="pPercHumanas" Type="float" Mode="In" />
+          <Parameter Name="pPercBio" Type="float" Mode="In" />
+        </Function>
+        <Function Name="sp_iniciarTeste" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pIdUser" Type="int" Mode="In" />
+          <Parameter Name="pDataInicio" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="sp_inserirContatosFaculdade" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pFaculNome" Type="varchar" Mode="In" />
+          <Parameter Name="pTipoCont" Type="int" Mode="In" />
+          <Parameter Name="pDescCont" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_inserirDetalhesDoResultado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pIdUser" Type="int" Mode="In" />
+          <Parameter Name="pIdTeste" Type="int" Mode="In" />
+          <Parameter Name="pIdCurso" Type="int" Mode="In" />
+          <Parameter Name="pPtsExatas" Type="float" Mode="In" />
+          <Parameter Name="pPtsHumanas" Type="float" Mode="In" />
+          <Parameter Name="pPtsBiologicas" Type="float" Mode="In" />
+        </Function>
+        <Function Name="sp_inserirNovoEmail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pUsername" Type="varchar" Mode="In" />
+          <Parameter Name="pDescEmail" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_inserirNovosContatos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pUsername" Type="varchar" Mode="In" />
+          <Parameter Name="pContTelDesc" Type="varchar" Mode="In" />
+          <Parameter Name="pContCelDesc" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_inserirNovoUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pNome" Type="varchar" Mode="In" />
+          <Parameter Name="pSexo" Type="char" Mode="In" />
+          <Parameter Name="pDataNasc" Type="date" Mode="In" />
+          <Parameter Name="pUsername" Type="varchar" Mode="In" />
+          <Parameter Name="pSenha" Type="varchar(max)" Mode="In" />
+          <Parameter Name="pUf" Type="char" Mode="In" />
+          <Parameter Name="pCidade" Type="varchar" Mode="In" />
+          <Parameter Name="pNivel" Type="int" Mode="In" />
+          <Parameter Name="pDataCad" Type="datetime" Mode="In" />
+          <Parameter Name="pFezTeste" Type="tinyint" Mode="In" />
+          <Parameter Name="pImgAvatar" Type="text" Mode="In" />
+          <Parameter Name="pBio" Type="text" Mode="In" />
+        </Function>
+        <Function Name="sp_novoTeste" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_retornarCursoCompatibilidade" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pDescArea" Type="varchar" Mode="In" />
+          <Parameter Name="pValorTotalArea" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_zerarIncrementoTabela" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pTabela" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="bd_topModelStoreContainer">
+          <EntitySet Name="tb_area" EntityType="Self.tb_area" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_curso" EntityType="Self.tb_curso" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_detalhesResultado" EntityType="Self.tb_detalhesResultado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_faculdade" EntityType="Self.tb_faculdade" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_nivelAcademico" EntityType="Self.tb_nivelAcademico" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_notaMec" EntityType="Self.tb_notaMec" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_pergunta" EntityType="Self.tb_pergunta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_resposta" EntityType="Self.tb_resposta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_teste" EntityType="Self.tb_teste" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_tipoContato" EntityType="Self.tb_tipoContato" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_tipoContatoFaculdade" EntityType="Self.tb_tipoContatoFaculdade" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_usuario" EntityType="Self.tb_usuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_contato" EntityType="Self.tb_contato" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tb_contato].[userCont_in_id] AS [userCont_in_id], 
+    [tb_contato].[tipoCont_in_id] AS [tipoCont_in_id], 
+    [tb_contato].[cont_st_desc] AS [cont_st_desc]
+    FROM [dbo].[tb_contato] AS [tb_contato]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="tb_contatoFaculdade" EntityType="Self.tb_contatoFaculdade" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tb_contatoFaculdade].[faculCont_in_id] AS [faculCont_in_id], 
+    [tb_contatoFaculdade].[tipoContFacul_in_id] AS [tipoContFacul_in_id], 
+    [tb_contatoFaculdade].[contFacul_st_desc] AS [contFacul_st_desc]
+    FROM [dbo].[tb_contatoFaculdade] AS [tb_contatoFaculdade]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="tb_email" EntityType="Self.tb_email" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tb_email].[userEmail_in_id] AS [userEmail_in_id], 
+    [tb_email].[email_st_desc] AS [email_st_desc], 
+    [tb_email].[email_bool_receberNoticias] AS [email_bool_receberNoticias]
+    FROM [dbo].[tb_email] AS [tb_email]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_RelatorioCurso" EntityType="Self.v_RelatorioCurso" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_RelatorioCurso].[id_curso] AS [id_curso], 
+    [v_RelatorioCurso].[nome_curso] AS [nome_curso], 
+    [v_RelatorioCurso].[desc_curso] AS [desc_curso], 
+    [v_RelatorioCurso].[desc_area] AS [desc_area], 
+    [v_RelatorioCurso].[tipo_curso] AS [tipo_curso], 
+    [v_RelatorioCurso].[imagem_curso] AS [imagem_curso], 
+    [v_RelatorioCurso].[duracao_curso] AS [duracao_curso]
+    FROM [dbo].[v_RelatorioCurso] AS [v_RelatorioCurso]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_relatorioFaculdades" EntityType="Self.v_relatorioFaculdades" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_relatorioFaculdades].[id_facul] AS [id_facul], 
+    [v_relatorioFaculdades].[nome_facul] AS [nome_facul], 
+    [v_relatorioFaculdades].[endereco_facul] AS [endereco_facul], 
+    [v_relatorioFaculdades].[uf_facul] AS [uf_facul], 
+    [v_relatorioFaculdades].[estado_facul] AS [estado_facul], 
+    [v_relatorioFaculdades].[cidade_facul] AS [cidade_facul], 
+    [v_relatorioFaculdades].[tipoContado_facul] AS [tipoContado_facul], 
+    [v_relatorioFaculdades].[contato_facul] AS [contato_facul], 
+    [v_relatorioFaculdades].[site_facul] AS [site_facul]
+    FROM [dbo].[v_relatorioFaculdades] AS [v_relatorioFaculdades]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_relatorioNotaMec" EntityType="Self.v_relatorioNotaMec" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_relatorioNotaMec].[id_facul] AS [id_facul], 
+    [v_relatorioNotaMec].[nome_facul] AS [nome_facul], 
+    [v_relatorioNotaMec].[uf_facul] AS [uf_facul], 
+    [v_relatorioNotaMec].[id_curso] AS [id_curso], 
+    [v_relatorioNotaMec].[nome_curso] AS [nome_curso], 
+    [v_relatorioNotaMec].[desc_area] AS [desc_area], 
+    [v_relatorioNotaMec].[valor_notaMec] AS [valor_notaMec]
+    FROM [dbo].[v_relatorioNotaMec] AS [v_relatorioNotaMec]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_RelatorioQuestoes" EntityType="Self.v_RelatorioQuestoes" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_RelatorioQuestoes].[id_pergunta] AS [id_pergunta], 
+    [v_RelatorioQuestoes].[desc_pergunta] AS [desc_pergunta], 
+    [v_RelatorioQuestoes].[id_resposta] AS [id_resposta], 
+    [v_RelatorioQuestoes].[desc_resposta] AS [desc_resposta], 
+    [v_RelatorioQuestoes].[perc_exatas] AS [perc_exatas], 
+    [v_RelatorioQuestoes].[perc_humanas] AS [perc_humanas], 
+    [v_RelatorioQuestoes].[perc_biologicas] AS [perc_biologicas]
+    FROM [dbo].[v_RelatorioQuestoes] AS [v_RelatorioQuestoes]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_relatorioResultado" EntityType="Self.v_relatorioResultado" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_relatorioResultado].[id_user] AS [id_user], 
+    [v_relatorioResultado].[username_user] AS [username_user], 
+    [v_relatorioResultado].[id_teste] AS [id_teste], 
+    [v_relatorioResultado].[inicio_teste] AS [inicio_teste], 
+    [v_relatorioResultado].[final_teste] AS [final_teste], 
+    [v_relatorioResultado].[novo_teste] AS [novo_teste], 
+    [v_relatorioResultado].[tempo_resultado] AS [tempo_resultado], 
+    [v_relatorioResultado].[exatas_resultado] AS [exatas_resultado], 
+    [v_relatorioResultado].[humanas_resultado] AS [humanas_resultado], 
+    [v_relatorioResultado].[biologicas_resultado] AS [biologicas_resultado], 
+    [v_relatorioResultado].[nome_curso] AS [nome_curso], 
+    [v_relatorioResultado].[desc_curso] AS [desc_curso], 
+    [v_relatorioResultado].[tipo_curso] AS [tipo_curso], 
+    [v_relatorioResultado].[duracao_curso] AS [duracao_curso], 
+    [v_relatorioResultado].[desc_area] AS [desc_area], 
+    [v_relatorioResultado].[img_curso] AS [img_curso], 
+    [v_relatorioResultado].[nome_facul] AS [nome_facul], 
+    [v_relatorioResultado].[estado_facul] AS [estado_facul], 
+    [v_relatorioResultado].[site_facul] AS [site_facul], 
+    [v_relatorioResultado].[valor_notaMec] AS [valor_notaMec]
+    FROM [dbo].[v_relatorioResultado] AS [v_relatorioResultado]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_relatorioUsuario" EntityType="Self.v_relatorioUsuario" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_relatorioUsuario].[id_user] AS [id_user], 
+    [v_relatorioUsuario].[nome_user] AS [nome_user], 
+    [v_relatorioUsuario].[desc_email] AS [desc_email], 
+    [v_relatorioUsuario].[sexo_user] AS [sexo_user], 
+    [v_relatorioUsuario].[nasc_user] AS [nasc_user], 
+    [v_relatorioUsuario].[username_user] AS [username_user], 
+    [v_relatorioUsuario].[uf_user] AS [uf_user], 
+    [v_relatorioUsuario].[cidade_user] AS [cidade_user], 
+    [v_relatorioUsuario].[desc_nivelAcad] AS [desc_nivelAcad], 
+    [v_relatorioUsuario].[desc_tipoCont] AS [desc_tipoCont], 
+    [v_relatorioUsuario].[desc_cont] AS [desc_cont], 
+    [v_relatorioUsuario].[dtCad_user] AS [dtCad_user], 
+    [v_relatorioUsuario].[teste_user] AS [teste_user]
+    FROM [dbo].[v_relatorioUsuario] AS [v_relatorioUsuario]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_contato_tipoContato" Association="Self.FK_contato_tipoContato">
+            <End Role="tb_tipoContato" EntitySet="tb_tipoContato" />
+            <End Role="tb_contato" EntitySet="tb_contato" />
+          </AssociationSet>
+          <AssociationSet Name="FK_contato_usuario" Association="Self.FK_contato_usuario">
+            <End Role="tb_usuario" EntitySet="tb_usuario" />
+            <End Role="tb_contato" EntitySet="tb_contato" />
+          </AssociationSet>
+          <AssociationSet Name="FK_contatoFaculdade_faculdade" Association="Self.FK_contatoFaculdade_faculdade">
+            <End Role="tb_faculdade" EntitySet="tb_faculdade" />
+            <End Role="tb_contatoFaculdade" EntitySet="tb_contatoFaculdade" />
+          </AssociationSet>
+          <AssociationSet Name="FK_contatoFaculdade_tipoContatoFaculdade" Association="Self.FK_contatoFaculdade_tipoContatoFaculdade">
+            <End Role="tb_tipoContatoFaculdade" EntitySet="tb_tipoContatoFaculdade" />
+            <End Role="tb_contatoFaculdade" EntitySet="tb_contatoFaculdade" />
+          </AssociationSet>
+          <AssociationSet Name="FK_detalhesResultado_curso" Association="Self.FK_detalhesResultado_curso">
+            <End Role="tb_curso" EntitySet="tb_curso" />
+            <End Role="tb_detalhesResultado" EntitySet="tb_detalhesResultado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_detalhesResultado_teste" Association="Self.FK_detalhesResultado_teste">
+            <End Role="tb_teste" EntitySet="tb_teste" />
+            <End Role="tb_detalhesResultado" EntitySet="tb_detalhesResultado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_detalhesResultado_usuario" Association="Self.FK_detalhesResultado_usuario">
+            <End Role="tb_usuario" EntitySet="tb_usuario" />
+            <End Role="tb_detalhesResultado" EntitySet="tb_detalhesResultado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_email_usuario" Association="Self.FK_email_usuario">
+            <End Role="tb_usuario" EntitySet="tb_usuario" />
+            <End Role="tb_email" EntitySet="tb_email" />
+          </AssociationSet>
+          <AssociationSet Name="FK_notaMec_curso" Association="Self.FK_notaMec_curso">
+            <End Role="tb_curso" EntitySet="tb_curso" />
+            <End Role="tb_notaMec" EntitySet="tb_notaMec" />
+          </AssociationSet>
+          <AssociationSet Name="FK_notaMec_faculdade" Association="Self.FK_notaMec_faculdade">
+            <End Role="tb_faculdade" EntitySet="tb_faculdade" />
+            <End Role="tb_notaMec" EntitySet="tb_notaMec" />
+          </AssociationSet>
+          <AssociationSet Name="FK_resp_perg" Association="Self.FK_resp_perg">
+            <End Role="tb_pergunta" EntitySet="tb_pergunta" />
+            <End Role="tb_resposta" EntitySet="tb_resposta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_teste_usuario" Association="Self.FK_teste_usuario">
+            <End Role="tb_usuario" EntitySet="tb_usuario" />
+            <End Role="tb_teste" EntitySet="tb_teste" />
+          </AssociationSet>
+          <AssociationSet Name="FK_usuario_nivelAcademico" Association="Self.FK_usuario_nivelAcademico">
+            <End Role="tb_nivelAcademico" EntitySet="tb_nivelAcademico" />
+            <End Role="tb_usuario" EntitySet="tb_usuario" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="bd_topModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tb_area">
+          <Key>
+            <PropertyRef Name="area_in_id" />
+          </Key>
+          <Property Name="area_in_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="area_st_desc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_curso">
+          <Key>
+            <PropertyRef Name="cur_in_id" />
+          </Key>
+          <Property Name="cur_in_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="areaCur_in_id" Type="Int32" Nullable="false" />
+          <Property Name="cur_st_nome" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cur_st_desc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cur_st_duracao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cur_img_prof" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="cur_st_tipo" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="cur_in_atribuidoNotaMec" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="tb_detalhesResultado" Relationship="Self.FK_detalhesResultado_curso" FromRole="tb_curso" ToRole="tb_detalhesResultado" />
+          <NavigationProperty Name="tb_notaMec" Relationship="Self.FK_notaMec_curso" FromRole="tb_curso" ToRole="tb_notaMec" />
+          <Property Name="cur_in_valorMin" Type="Int32" Nullable="false" />
+          <Property Name="cur_in_valorMax" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_detalhesResultado">
+          <Key>
+            <PropertyRef Name="userResult_in_id" />
+            <PropertyRef Name="testResult_in_id" />
+          </Key>
+          <Property Name="userResult_in_id" Type="Int32" Nullable="false" />
+          <Property Name="testResult_in_id" Type="Int32" Nullable="false" />
+          <Property Name="curResult_in_id" Type="Int32" Nullable="false" />
+          <Property Name="result_dt_tempo" Type="Int32" />
+          <Property Name="result_re_pontosExatas" Type="Double" Nullable="false" />
+          <Property Name="result_re_pontosHumanas" Type="Double" Nullable="false" />
+          <Property Name="result_re_pontosBiologicas" Type="Double" Nullable="false" />
+          <NavigationProperty Name="tb_curso" Relationship="Self.FK_detalhesResultado_curso" FromRole="tb_detalhesResultado" ToRole="tb_curso" />
+          <NavigationProperty Name="tb_teste" Relationship="Self.FK_detalhesResultado_teste" FromRole="tb_detalhesResultado" ToRole="tb_teste" />
+          <NavigationProperty Name="tb_usuario" Relationship="Self.FK_detalhesResultado_usuario" FromRole="tb_detalhesResultado" ToRole="tb_usuario" />
+        </EntityType>
+        <EntityType Name="tb_faculdade">
+          <Key>
+            <PropertyRef Name="facul_in_id" />
+          </Key>
+          <Property Name="facul_in_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="facul_st_nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="facul_st_endereco" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="facul_st_uf" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="facul_st_estado" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="facul_st_cidade" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="facul_st_site" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tb_contatoFaculdade" Relationship="Self.FK_contatoFaculdade_faculdade" FromRole="tb_faculdade" ToRole="tb_contatoFaculdade" />
+          <NavigationProperty Name="tb_notaMec" Relationship="Self.FK_notaMec_faculdade" FromRole="tb_faculdade" ToRole="tb_notaMec" />
+        </EntityType>
+        <EntityType Name="tb_nivelAcademico">
+          <Key>
+            <PropertyRef Name="nivelAcad_in_id" />
+          </Key>
+          <Property Name="nivelAcad_in_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nivelAcad_st_desc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="tb_usuario" Relationship="Self.FK_usuario_nivelAcademico" FromRole="tb_nivelAcademico" ToRole="tb_usuario" />
+        </EntityType>
+        <EntityType Name="tb_notaMec">
+          <Key>
+            <PropertyRef Name="notaMecFacul_in_id" />
+            <PropertyRef Name="notaMecCur_in_id" />
+          </Key>
+          <Property Name="notaMecFacul_in_id" Type="Int32" Nullable="false" />
+          <Property Name="notaMecCur_in_id" Type="Int32" Nullable="false" />
+          <Property Name="notaMec_in_valor" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tb_curso" Relationship="Self.FK_notaMec_curso" FromRole="tb_notaMec" ToRole="tb_curso" />
+          <NavigationProperty Name="tb_faculdade" Relationship="Self.FK_notaMec_faculdade" FromRole="tb_notaMec" ToRole="tb_faculdade" />
+        </EntityType>
+        <EntityType Name="tb_pergunta">
+          <Key>
+            <PropertyRef Name="perg_in_id" />
+          </Key>
+          <Property Name="perg_in_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="perg_st_desc" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="tb_resposta" Relationship="Self.FK_resp_perg" FromRole="tb_pergunta" ToRole="tb_resposta" />
+        </EntityType>
+        <EntityType Name="tb_resposta">
+          <Key>
+            <PropertyRef Name="resp_in_id" />
+          </Key>
+          <Property Name="resp_in_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="perg_in_id" Type="Int32" Nullable="false" />
+          <Property Name="resp_st_desc" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="resp_re_resExatas" Type="Double" Nullable="false" />
+          <Property Name="resp_re_resHumanas" Type="Double" Nullable="false" />
+          <Property Name="resp_re_resBiologicas" Type="Double" Nullable="false" />
+          <NavigationProperty Name="tb_pergunta" Relationship="Self.FK_resp_perg" FromRole="tb_resposta" ToRole="tb_pergunta" />
+        </EntityType>
+        <EntityType Name="tb_teste">
+          <Key>
+            <PropertyRef Name="teste_in_id" />
+          </Key>
+          <Property Name="teste_in_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userTeste_in_id" Type="Int32" Nullable="false" />
+          <Property Name="teste_dt_inicio" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="teste_dt_final" Type="DateTime" Precision="3" />
+          <Property Name="teste_bool_novoTeste" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="tb_detalhesResultado" Relationship="Self.FK_detalhesResultado_teste" FromRole="tb_teste" ToRole="tb_detalhesResultado" />
+          <NavigationProperty Name="tb_usuario" Relationship="Self.FK_teste_usuario" FromRole="tb_teste" ToRole="tb_usuario" />
+        </EntityType>
+        <EntityType Name="tb_tipoContato">
+          <Key>
+            <PropertyRef Name="tipoCont_in_id" />
+          </Key>
+          <Property Name="tipoCont_in_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tipoCont_st_desc" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="tb_contato" Relationship="Self.FK_contato_tipoContato" FromRole="tb_tipoContato" ToRole="tb_contato" />
+        </EntityType>
+        <EntityType Name="tb_tipoContatoFaculdade">
+          <Key>
+            <PropertyRef Name="tipoContFac_in_id" />
+          </Key>
+          <Property Name="tipoContFac_in_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tipoContFac_st_nome" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="tb_contatoFaculdade" Relationship="Self.FK_contatoFaculdade_tipoContatoFaculdade" FromRole="tb_tipoContatoFaculdade" ToRole="tb_contatoFaculdade" />
+        </EntityType>
+        <EntityType Name="tb_usuario">
+          <Key>
+            <PropertyRef Name="user_in_id" />
+          </Key>
+          <Property Name="user_in_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_st_nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="user_st_sexo" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="user_dt_dtNasc" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="user_st_username" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="user_st_senha" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="user_st_uf" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="user_st_cidade" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="user_in_nivelAcad" Type="Int32" Nullable="false" />
+          <Property Name="user_dt_dtCad" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="user_bool_fezTeste" Type="Byte" Nullable="false" />
+          <Property Name="user_img_avatar" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="user_st_bio" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tb_detalhesResultado" Relationship="Self.FK_detalhesResultado_usuario" FromRole="tb_usuario" ToRole="tb_detalhesResultado" />
+          <NavigationProperty Name="tb_nivelAcademico" Relationship="Self.FK_usuario_nivelAcademico" FromRole="tb_usuario" ToRole="tb_nivelAcademico" />
+          <NavigationProperty Name="tb_teste" Relationship="Self.FK_teste_usuario" FromRole="tb_usuario" ToRole="tb_teste" />
+          <NavigationProperty Name="tb_contato" Relationship="Self.FK_contato_usuario" FromRole="tb_usuario" ToRole="tb_contato" />
+          <NavigationProperty Name="tb_email" Relationship="Self.FK_email_usuario" FromRole="tb_usuario" ToRole="tb_email" />
+        </EntityType>
+        <EntityType Name="tb_contato">
+          <Key>
+            <PropertyRef Name="userCont_in_id" />
+            <PropertyRef Name="tipoCont_in_id" />
+            <PropertyRef Name="cont_st_desc" />
+          </Key>
+          <Property Name="userCont_in_id" Type="Int32" Nullable="false" />
+          <Property Name="tipoCont_in_id" Type="Int32" Nullable="false" />
+          <Property Name="cont_st_desc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="tb_tipoContato" Relationship="Self.FK_contato_tipoContato" FromRole="tb_contato" ToRole="tb_tipoContato" />
+          <NavigationProperty Name="tb_usuario" Relationship="Self.FK_contato_usuario" FromRole="tb_contato" ToRole="tb_usuario" />
+        </EntityType>
+        <EntityType Name="tb_contatoFaculdade">
+          <Key>
+            <PropertyRef Name="faculCont_in_id" />
+            <PropertyRef Name="tipoContFacul_in_id" />
+            <PropertyRef Name="contFacul_st_desc" />
+          </Key>
+          <Property Name="faculCont_in_id" Type="Int32" Nullable="false" />
+          <Property Name="tipoContFacul_in_id" Type="Int32" Nullable="false" />
+          <Property Name="contFacul_st_desc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="tb_faculdade" Relationship="Self.FK_contatoFaculdade_faculdade" FromRole="tb_contatoFaculdade" ToRole="tb_faculdade" />
+          <NavigationProperty Name="tb_tipoContatoFaculdade" Relationship="Self.FK_contatoFaculdade_tipoContatoFaculdade" FromRole="tb_contatoFaculdade" ToRole="tb_tipoContatoFaculdade" />
+        </EntityType>
+        <EntityType Name="tb_email">
+          <Key>
+            <PropertyRef Name="userEmail_in_id" />
+            <PropertyRef Name="email_st_desc" />
+          </Key>
+          <Property Name="userEmail_in_id" Type="Int32" Nullable="false" />
+          <Property Name="email_st_desc" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email_bool_receberNoticias" Type="Byte" />
+          <NavigationProperty Name="tb_usuario" Relationship="Self.FK_email_usuario" FromRole="tb_email" ToRole="tb_usuario" />
+        </EntityType>
+        <EntityType Name="v_RelatorioCurso">
+          <Key>
+            <PropertyRef Name="id_curso" />
+            <PropertyRef Name="nome_curso" />
+            <PropertyRef Name="desc_curso" />
+            <PropertyRef Name="desc_area" />
+            <PropertyRef Name="tipo_curso" />
+            <PropertyRef Name="duracao_curso" />
+          </Key>
+          <Property Name="id_curso" Type="Int32" Nullable="false" />
+          <Property Name="nome_curso" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="desc_curso" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="desc_area" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tipo_curso" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="imagem_curso" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="duracao_curso" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="v_relatorioFaculdades">
+          <Key>
+            <PropertyRef Name="id_facul" />
+            <PropertyRef Name="nome_facul" />
+            <PropertyRef Name="endereco_facul" />
+            <PropertyRef Name="uf_facul" />
+            <PropertyRef Name="estado_facul" />
+            <PropertyRef Name="cidade_facul" />
+            <PropertyRef Name="tipoContado_facul" />
+            <PropertyRef Name="contato_facul" />
+          </Key>
+          <Property Name="id_facul" Type="Int32" Nullable="false" />
+          <Property Name="nome_facul" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="endereco_facul" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="uf_facul" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="estado_facul" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cidade_facul" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tipoContado_facul" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="contato_facul" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="site_facul" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="v_relatorioNotaMec">
+          <Key>
+            <PropertyRef Name="id_facul" />
+            <PropertyRef Name="nome_facul" />
+            <PropertyRef Name="uf_facul" />
+            <PropertyRef Name="id_curso" />
+            <PropertyRef Name="nome_curso" />
+            <PropertyRef Name="desc_area" />
+            <PropertyRef Name="valor_notaMec" />
+          </Key>
+          <Property Name="id_facul" Type="Int32" Nullable="false" />
+          <Property Name="nome_facul" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="uf_facul" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="id_curso" Type="Int32" Nullable="false" />
+          <Property Name="nome_curso" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="desc_area" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="valor_notaMec" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="v_RelatorioQuestoes">
+          <Key>
+            <PropertyRef Name="id_pergunta" />
+            <PropertyRef Name="desc_pergunta" />
+            <PropertyRef Name="id_resposta" />
+            <PropertyRef Name="desc_resposta" />
+            <PropertyRef Name="perc_exatas" />
+            <PropertyRef Name="perc_humanas" />
+            <PropertyRef Name="perc_biologicas" />
+          </Key>
+          <Property Name="id_pergunta" Type="Int32" Nullable="false" />
+          <Property Name="desc_pergunta" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_resposta" Type="Int32" Nullable="false" />
+          <Property Name="desc_resposta" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="perc_exatas" Type="Double" Nullable="false" />
+          <Property Name="perc_humanas" Type="Double" Nullable="false" />
+          <Property Name="perc_biologicas" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="v_relatorioResultado">
+          <Key>
+            <PropertyRef Name="id_user" />
+            <PropertyRef Name="username_user" />
+            <PropertyRef Name="id_teste" />
+            <PropertyRef Name="inicio_teste" />
+            <PropertyRef Name="exatas_resultado" />
+            <PropertyRef Name="humanas_resultado" />
+            <PropertyRef Name="biologicas_resultado" />
+            <PropertyRef Name="nome_curso" />
+            <PropertyRef Name="desc_curso" />
+            <PropertyRef Name="tipo_curso" />
+            <PropertyRef Name="duracao_curso" />
+            <PropertyRef Name="desc_area" />
+            <PropertyRef Name="nome_facul" />
+            <PropertyRef Name="estado_facul" />
+            <PropertyRef Name="valor_notaMec" />
+            <PropertyRef Name="novo_teste" />
+          </Key>
+          <Property Name="id_user" Type="Int32" Nullable="false" />
+          <Property Name="username_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_teste" Type="Int32" Nullable="false" />
+          <Property Name="inicio_teste" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="final_teste" Type="DateTime" Precision="3" />
+          <Property Name="tempo_resultado" Type="Int32" />
+          <Property Name="exatas_resultado" Type="Double" Nullable="false" />
+          <Property Name="humanas_resultado" Type="Double" Nullable="false" />
+          <Property Name="biologicas_resultado" Type="Double" Nullable="false" />
+          <Property Name="nome_curso" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="desc_curso" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tipo_curso" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="duracao_curso" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="desc_area" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="img_curso" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="nome_facul" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="estado_facul" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="site_facul" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="valor_notaMec" Type="Int32" Nullable="false" />
+          <Property Name="novo_teste" Type="Byte" Nullable="false" />
+        </EntityType>
+        <EntityType Name="v_relatorioUsuario">
+          <Key>
+            <PropertyRef Name="id_user" />
+            <PropertyRef Name="nome_user" />
+            <PropertyRef Name="desc_email" />
+            <PropertyRef Name="sexo_user" />
+            <PropertyRef Name="nasc_user" />
+            <PropertyRef Name="username_user" />
+            <PropertyRef Name="uf_user" />
+            <PropertyRef Name="cidade_user" />
+            <PropertyRef Name="desc_nivelAcad" />
+            <PropertyRef Name="desc_tipoCont" />
+            <PropertyRef Name="desc_cont" />
+            <PropertyRef Name="dtCad_user" />
+            <PropertyRef Name="teste_user" />
+          </Key>
+          <Property Name="id_user" Type="Int32" Nullable="false" />
+          <Property Name="nome_user" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="desc_email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="sexo_user" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="nasc_user" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="username_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="uf_user" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="cidade_user" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="desc_nivelAcad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="desc_tipoCont" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="desc_cont" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dtCad_user" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="teste_user" Type="Byte" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_detalhesResultado_curso">
+          <End Role="tb_curso" Type="Self.tb_curso" Multiplicity="1" />
+          <End Role="tb_detalhesResultado" Type="Self.tb_detalhesResultado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_curso">
+              <PropertyRef Name="cur_in_id" />
+            </Principal>
+            <Dependent Role="tb_detalhesResultado">
+              <PropertyRef Name="curResult_in_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_notaMec_curso">
+          <End Role="tb_curso" Type="Self.tb_curso" Multiplicity="1" />
+          <End Role="tb_notaMec" Type="Self.tb_notaMec" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_curso">
+              <PropertyRef Name="cur_in_id" />
+            </Principal>
+            <Dependent Role="tb_notaMec">
+              <PropertyRef Name="notaMecCur_in_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_detalhesResultado_teste">
+          <End Role="tb_teste" Type="Self.tb_teste" Multiplicity="1" />
+          <End Role="tb_detalhesResultado" Type="Self.tb_detalhesResultado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_teste">
+              <PropertyRef Name="teste_in_id" />
+            </Principal>
+            <Dependent Role="tb_detalhesResultado">
+              <PropertyRef Name="testResult_in_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_detalhesResultado_usuario">
+          <End Role="tb_usuario" Type="Self.tb_usuario" Multiplicity="1" />
+          <End Role="tb_detalhesResultado" Type="Self.tb_detalhesResultado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_usuario">
+              <PropertyRef Name="user_in_id" />
+            </Principal>
+            <Dependent Role="tb_detalhesResultado">
+              <PropertyRef Name="userResult_in_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_contatoFaculdade_faculdade">
+          <End Role="tb_faculdade" Type="Self.tb_faculdade" Multiplicity="1" />
+          <End Role="tb_contatoFaculdade" Type="Self.tb_contatoFaculdade" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_faculdade">
+              <PropertyRef Name="facul_in_id" />
+            </Principal>
+            <Dependent Role="tb_contatoFaculdade">
+              <PropertyRef Name="faculCont_in_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_notaMec_faculdade">
+          <End Role="tb_faculdade" Type="Self.tb_faculdade" Multiplicity="1" />
+          <End Role="tb_notaMec" Type="Self.tb_notaMec" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_faculdade">
+              <PropertyRef Name="facul_in_id" />
+            </Principal>
+            <Dependent Role="tb_notaMec">
+              <PropertyRef Name="notaMecFacul_in_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_usuario_nivelAcademico">
+          <End Role="tb_nivelAcademico" Type="Self.tb_nivelAcademico" Multiplicity="1" />
+          <End Role="tb_usuario" Type="Self.tb_usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_nivelAcademico">
+              <PropertyRef Name="nivelAcad_in_id" />
+            </Principal>
+            <Dependent Role="tb_usuario">
+              <PropertyRef Name="user_in_nivelAcad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_resp_perg">
+          <End Role="tb_pergunta" Type="Self.tb_pergunta" Multiplicity="1" />
+          <End Role="tb_resposta" Type="Self.tb_resposta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_pergunta">
+              <PropertyRef Name="perg_in_id" />
+            </Principal>
+            <Dependent Role="tb_resposta">
+              <PropertyRef Name="perg_in_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_teste_usuario">
+          <End Role="tb_usuario" Type="Self.tb_usuario" Multiplicity="1" />
+          <End Role="tb_teste" Type="Self.tb_teste" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_usuario">
+              <PropertyRef Name="user_in_id" />
+            </Principal>
+            <Dependent Role="tb_teste">
+              <PropertyRef Name="userTeste_in_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_contato_tipoContato">
+          <End Role="tb_tipoContato" Type="Self.tb_tipoContato" Multiplicity="1" />
+          <End Role="tb_contato" Type="Self.tb_contato" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_tipoContato">
+              <PropertyRef Name="tipoCont_in_id" />
+            </Principal>
+            <Dependent Role="tb_contato">
+              <PropertyRef Name="tipoCont_in_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_contatoFaculdade_tipoContatoFaculdade">
+          <End Role="tb_tipoContatoFaculdade" Type="Self.tb_tipoContatoFaculdade" Multiplicity="1" />
+          <End Role="tb_contatoFaculdade" Type="Self.tb_contatoFaculdade" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_tipoContatoFaculdade">
+              <PropertyRef Name="tipoContFac_in_id" />
+            </Principal>
+            <Dependent Role="tb_contatoFaculdade">
+              <PropertyRef Name="tipoContFacul_in_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_contato_usuario">
+          <End Role="tb_usuario" Type="Self.tb_usuario" Multiplicity="1" />
+          <End Role="tb_contato" Type="Self.tb_contato" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_usuario">
+              <PropertyRef Name="user_in_id" />
+            </Principal>
+            <Dependent Role="tb_contato">
+              <PropertyRef Name="userCont_in_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_email_usuario">
+          <End Role="tb_usuario" Type="Self.tb_usuario" Multiplicity="1" />
+          <End Role="tb_email" Type="Self.tb_email" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_usuario">
+              <PropertyRef Name="user_in_id" />
+            </Principal>
+            <Dependent Role="tb_email">
+              <PropertyRef Name="userEmail_in_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="bd_top" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tb_area" EntityType="Self.tb_area" />
+          <EntitySet Name="tb_curso" EntityType="Self.tb_curso" />
+          <EntitySet Name="tb_detalhesResultado" EntityType="Self.tb_detalhesResultado" />
+          <EntitySet Name="tb_faculdade" EntityType="Self.tb_faculdade" />
+          <EntitySet Name="tb_nivelAcademico" EntityType="Self.tb_nivelAcademico" />
+          <EntitySet Name="tb_notaMec" EntityType="Self.tb_notaMec" />
+          <EntitySet Name="tb_pergunta" EntityType="Self.tb_pergunta" />
+          <EntitySet Name="tb_resposta" EntityType="Self.tb_resposta" />
+          <EntitySet Name="tb_teste" EntityType="Self.tb_teste" />
+          <EntitySet Name="tb_tipoContato" EntityType="Self.tb_tipoContato" />
+          <EntitySet Name="tb_tipoContatoFaculdade" EntityType="Self.tb_tipoContatoFaculdade" />
+          <EntitySet Name="tb_usuario" EntityType="Self.tb_usuario" />
+          <EntitySet Name="tb_contato" EntityType="Self.tb_contato" />
+          <EntitySet Name="tb_contatoFaculdade" EntityType="Self.tb_contatoFaculdade" />
+          <EntitySet Name="tb_email" EntityType="Self.tb_email" />
+          <EntitySet Name="v_RelatorioCurso" EntityType="Self.v_RelatorioCurso" />
+          <EntitySet Name="v_relatorioFaculdades" EntityType="Self.v_relatorioFaculdades" />
+          <EntitySet Name="v_relatorioNotaMec" EntityType="Self.v_relatorioNotaMec" />
+          <EntitySet Name="v_RelatorioQuestoes" EntityType="Self.v_RelatorioQuestoes" />
+          <EntitySet Name="v_relatorioResultado" EntityType="Self.v_relatorioResultado" />
+          <EntitySet Name="v_relatorioUsuario" EntityType="Self.v_relatorioUsuario" />
+          <AssociationSet Name="FK_detalhesResultado_curso" Association="Self.FK_detalhesResultado_curso">
+            <End Role="tb_curso" EntitySet="tb_curso" />
+            <End Role="tb_detalhesResultado" EntitySet="tb_detalhesResultado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_notaMec_curso" Association="Self.FK_notaMec_curso">
+            <End Role="tb_curso" EntitySet="tb_curso" />
+            <End Role="tb_notaMec" EntitySet="tb_notaMec" />
+          </AssociationSet>
+          <AssociationSet Name="FK_detalhesResultado_teste" Association="Self.FK_detalhesResultado_teste">
+            <End Role="tb_teste" EntitySet="tb_teste" />
+            <End Role="tb_detalhesResultado" EntitySet="tb_detalhesResultado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_detalhesResultado_usuario" Association="Self.FK_detalhesResultado_usuario">
+            <End Role="tb_usuario" EntitySet="tb_usuario" />
+            <End Role="tb_detalhesResultado" EntitySet="tb_detalhesResultado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_contatoFaculdade_faculdade" Association="Self.FK_contatoFaculdade_faculdade">
+            <End Role="tb_faculdade" EntitySet="tb_faculdade" />
+            <End Role="tb_contatoFaculdade" EntitySet="tb_contatoFaculdade" />
+          </AssociationSet>
+          <AssociationSet Name="FK_notaMec_faculdade" Association="Self.FK_notaMec_faculdade">
+            <End Role="tb_faculdade" EntitySet="tb_faculdade" />
+            <End Role="tb_notaMec" EntitySet="tb_notaMec" />
+          </AssociationSet>
+          <AssociationSet Name="FK_usuario_nivelAcademico" Association="Self.FK_usuario_nivelAcademico">
+            <End Role="tb_nivelAcademico" EntitySet="tb_nivelAcademico" />
+            <End Role="tb_usuario" EntitySet="tb_usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_resp_perg" Association="Self.FK_resp_perg">
+            <End Role="tb_pergunta" EntitySet="tb_pergunta" />
+            <End Role="tb_resposta" EntitySet="tb_resposta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_teste_usuario" Association="Self.FK_teste_usuario">
+            <End Role="tb_usuario" EntitySet="tb_usuario" />
+            <End Role="tb_teste" EntitySet="tb_teste" />
+          </AssociationSet>
+          <AssociationSet Name="FK_contato_tipoContato" Association="Self.FK_contato_tipoContato">
+            <End Role="tb_tipoContato" EntitySet="tb_tipoContato" />
+            <End Role="tb_contato" EntitySet="tb_contato" />
+          </AssociationSet>
+          <AssociationSet Name="FK_contatoFaculdade_tipoContatoFaculdade" Association="Self.FK_contatoFaculdade_tipoContatoFaculdade">
+            <End Role="tb_tipoContatoFaculdade" EntitySet="tb_tipoContatoFaculdade" />
+            <End Role="tb_contatoFaculdade" EntitySet="tb_contatoFaculdade" />
+          </AssociationSet>
+          <AssociationSet Name="FK_contato_usuario" Association="Self.FK_contato_usuario">
+            <End Role="tb_usuario" EntitySet="tb_usuario" />
+            <End Role="tb_contato" EntitySet="tb_contato" />
+          </AssociationSet>
+          <AssociationSet Name="FK_email_usuario" Association="Self.FK_email_usuario">
+            <End Role="tb_usuario" EntitySet="tb_usuario" />
+            <End Role="tb_email" EntitySet="tb_email" />
+          </AssociationSet>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_atualizaCadastro">
+            <Parameter Name="puserId" Mode="In" Type="Int32" />
+            <Parameter Name="pemailDesc" Mode="In" Type="String" />
+            <Parameter Name="pnivelAcad" Mode="In" Type="Int32" />
+            <Parameter Name="pcidade" Mode="In" Type="String" />
+            <Parameter Name="puf" Mode="In" Type="String" />
+            <Parameter Name="pcontDescTel" Mode="In" Type="String" />
+            <Parameter Name="pcontDescCel" Mode="In" Type="String" />
+            <Parameter Name="pftuser" Mode="In" Type="String" />
+            <Parameter Name="pbio" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_AtualizaCurso">
+            <Parameter Name="pIdCur" Mode="In" Type="Int32" />
+            <Parameter Name="pIdArea" Mode="In" Type="Int32" />
+            <Parameter Name="pNome" Mode="In" Type="String" />
+            <Parameter Name="pTipo" Mode="In" Type="String" />
+            <Parameter Name="pDuracao" Mode="In" Type="String" />
+            <Parameter Name="pDesc" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_atualizaFaculdade">
+            <Parameter Name="pId" Mode="In" Type="Int32" />
+            <Parameter Name="pNome" Mode="In" Type="String" />
+            <Parameter Name="pEnd" Mode="In" Type="String" />
+            <Parameter Name="pUf" Mode="In" Type="String" />
+            <Parameter Name="pEstado" Mode="In" Type="String" />
+            <Parameter Name="pCidade" Mode="In" Type="String" />
+            <Parameter Name="pSite" Mode="In" Type="String" />
+            <Parameter Name="pEmail" Mode="In" Type="String" />
+            <Parameter Name="pTel" Mode="In" Type="String" />
+            <Parameter Name="pCel" Mode="In" Type="String" />
+            <Parameter Name="pFax" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_atualizarQuestao">
+            <Parameter Name="pIdPergunta" Mode="In" Type="Int32" />
+            <Parameter Name="pIdResposta" Mode="In" Type="Int32" />
+            <Parameter Name="pDescResp" Mode="In" Type="String" />
+            <Parameter Name="pPercExatas" Mode="In" Type="Double" />
+            <Parameter Name="pPercHumanas" Mode="In" Type="Double" />
+            <Parameter Name="pPercBio" Mode="In" Type="Double" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_inserirContatosFaculdade">
+            <Parameter Name="pFaculNome" Mode="In" Type="String" />
+            <Parameter Name="pTipoCont" Mode="In" Type="Int32" />
+            <Parameter Name="pDescCont" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_inserirNovoEmail">
+            <Parameter Name="pUsername" Mode="In" Type="String" />
+            <Parameter Name="pDescEmail" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_inserirNovosContatos">
+            <Parameter Name="pUsername" Mode="In" Type="String" />
+            <Parameter Name="pContTelDesc" Mode="In" Type="String" />
+            <Parameter Name="pContCelDesc" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_inserirNovoUsuario">
+            <Parameter Name="pNome" Mode="In" Type="String" />
+            <Parameter Name="pSexo" Mode="In" Type="String" />
+            <Parameter Name="pDataNasc" Mode="In" Type="DateTime" />
+            <Parameter Name="pUsername" Mode="In" Type="String" />
+            <Parameter Name="pSenha" Mode="In" Type="String" />
+            <Parameter Name="pUf" Mode="In" Type="String" />
+            <Parameter Name="pCidade" Mode="In" Type="String" />
+            <Parameter Name="pNivel" Mode="In" Type="Int32" />
+            <Parameter Name="pDataCad" Mode="In" Type="DateTime" />
+            <Parameter Name="pFezTeste" Mode="In" Type="Byte" />
+            <Parameter Name="pImgAvatar" Mode="In" Type="String" />
+            <Parameter Name="pBio" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+          <FunctionImport Name="sp_zerarIncrementoTabela">
+          <Parameter Name="pTabela" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_iniciarTeste">
+            <Parameter Name="pIdUser" Mode="In" Type="Int32" />
+            <Parameter Name="pDataInicio" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="sp_novoTeste">
+          <Parameter Name="pId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_inserirDetalhesDoResultado">
+            <Parameter Name="pIdUser" Mode="In" Type="Int32" />
+            <Parameter Name="pIdTeste" Mode="In" Type="Int32" />
+            <Parameter Name="pIdCurso" Mode="In" Type="Int32" />
+            <Parameter Name="pPtsExatas" Mode="In" Type="Double" />
+            <Parameter Name="pPtsHumanas" Mode="In" Type="Double" />
+            <Parameter Name="pPtsBiologicas" Mode="In" Type="Double" />
+          </FunctionImport>
+          <FunctionImport Name="sp_retornarCursoCompatibilidade">
+            <Parameter Name="pDescArea" Mode="In" Type="String" />
+            <Parameter Name="pValorTotalArea" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="bd_topModelStoreContainer" CdmEntityContainer="bd_top">
+          <EntitySetMapping Name="tb_area">
+            <EntityTypeMapping TypeName="bd_topModel.tb_area">
+              <MappingFragment StoreEntitySet="tb_area">
+                <ScalarProperty Name="area_in_id" ColumnName="area_in_id" />
+                <ScalarProperty Name="area_st_desc" ColumnName="area_st_desc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_curso">
+            <EntityTypeMapping TypeName="bd_topModel.tb_curso">
+              <MappingFragment StoreEntitySet="tb_curso">
+                <ScalarProperty Name="cur_in_valorMax" ColumnName="cur_in_valorMax" />
+                <ScalarProperty Name="cur_in_valorMin" ColumnName="cur_in_valorMin" />
+                <ScalarProperty Name="cur_in_id" ColumnName="cur_in_id" />
+                <ScalarProperty Name="areaCur_in_id" ColumnName="areaCur_in_id" />
+                <ScalarProperty Name="cur_st_nome" ColumnName="cur_st_nome" />
+                <ScalarProperty Name="cur_st_desc" ColumnName="cur_st_desc" />
+                <ScalarProperty Name="cur_st_duracao" ColumnName="cur_st_duracao" />
+                <ScalarProperty Name="cur_img_prof" ColumnName="cur_img_prof" />
+                <ScalarProperty Name="cur_st_tipo" ColumnName="cur_st_tipo" />
+                <ScalarProperty Name="cur_in_atribuidoNotaMec" ColumnName="cur_in_atribuidoNotaMec" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_detalhesResultado">
+            <EntityTypeMapping TypeName="bd_topModel.tb_detalhesResultado">
+              <MappingFragment StoreEntitySet="tb_detalhesResultado">
+                <ScalarProperty Name="userResult_in_id" ColumnName="userResult_in_id" />
+                <ScalarProperty Name="testResult_in_id" ColumnName="testResult_in_id" />
+                <ScalarProperty Name="curResult_in_id" ColumnName="curResult_in_id" />
+                <ScalarProperty Name="result_dt_tempo" ColumnName="result_dt_tempo" />
+                <ScalarProperty Name="result_re_pontosExatas" ColumnName="result_re_pontosExatas" />
+                <ScalarProperty Name="result_re_pontosHumanas" ColumnName="result_re_pontosHumanas" />
+                <ScalarProperty Name="result_re_pontosBiologicas" ColumnName="result_re_pontosBiologicas" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_faculdade">
+            <EntityTypeMapping TypeName="bd_topModel.tb_faculdade">
+              <MappingFragment StoreEntitySet="tb_faculdade">
+                <ScalarProperty Name="facul_in_id" ColumnName="facul_in_id" />
+                <ScalarProperty Name="facul_st_nome" ColumnName="facul_st_nome" />
+                <ScalarProperty Name="facul_st_endereco" ColumnName="facul_st_endereco" />
+                <ScalarProperty Name="facul_st_uf" ColumnName="facul_st_uf" />
+                <ScalarProperty Name="facul_st_estado" ColumnName="facul_st_estado" />
+                <ScalarProperty Name="facul_st_cidade" ColumnName="facul_st_cidade" />
+                <ScalarProperty Name="facul_st_site" ColumnName="facul_st_site" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_nivelAcademico">
+            <EntityTypeMapping TypeName="bd_topModel.tb_nivelAcademico">
+              <MappingFragment StoreEntitySet="tb_nivelAcademico">
+                <ScalarProperty Name="nivelAcad_in_id" ColumnName="nivelAcad_in_id" />
+                <ScalarProperty Name="nivelAcad_st_desc" ColumnName="nivelAcad_st_desc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_notaMec">
+            <EntityTypeMapping TypeName="bd_topModel.tb_notaMec">
+              <MappingFragment StoreEntitySet="tb_notaMec">
+                <ScalarProperty Name="notaMecFacul_in_id" ColumnName="notaMecFacul_in_id" />
+                <ScalarProperty Name="notaMecCur_in_id" ColumnName="notaMecCur_in_id" />
+                <ScalarProperty Name="notaMec_in_valor" ColumnName="notaMec_in_valor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_pergunta">
+            <EntityTypeMapping TypeName="bd_topModel.tb_pergunta">
+              <MappingFragment StoreEntitySet="tb_pergunta">
+                <ScalarProperty Name="perg_in_id" ColumnName="perg_in_id" />
+                <ScalarProperty Name="perg_st_desc" ColumnName="perg_st_desc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_resposta">
+            <EntityTypeMapping TypeName="bd_topModel.tb_resposta">
+              <MappingFragment StoreEntitySet="tb_resposta">
+                <ScalarProperty Name="resp_in_id" ColumnName="resp_in_id" />
+                <ScalarProperty Name="perg_in_id" ColumnName="perg_in_id" />
+                <ScalarProperty Name="resp_st_desc" ColumnName="resp_st_desc" />
+                <ScalarProperty Name="resp_re_resExatas" ColumnName="resp_re_resExatas" />
+                <ScalarProperty Name="resp_re_resHumanas" ColumnName="resp_re_resHumanas" />
+                <ScalarProperty Name="resp_re_resBiologicas" ColumnName="resp_re_resBiologicas" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_teste">
+            <EntityTypeMapping TypeName="bd_topModel.tb_teste">
+              <MappingFragment StoreEntitySet="tb_teste">
+                <ScalarProperty Name="teste_in_id" ColumnName="teste_in_id" />
+                <ScalarProperty Name="userTeste_in_id" ColumnName="userTeste_in_id" />
+                <ScalarProperty Name="teste_dt_inicio" ColumnName="teste_dt_inicio" />
+                <ScalarProperty Name="teste_dt_final" ColumnName="teste_dt_final" />
+                <ScalarProperty Name="teste_bool_novoTeste" ColumnName="teste_bool_novoTeste" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_tipoContato">
+            <EntityTypeMapping TypeName="bd_topModel.tb_tipoContato">
+              <MappingFragment StoreEntitySet="tb_tipoContato">
+                <ScalarProperty Name="tipoCont_in_id" ColumnName="tipoCont_in_id" />
+                <ScalarProperty Name="tipoCont_st_desc" ColumnName="tipoCont_st_desc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_tipoContatoFaculdade">
+            <EntityTypeMapping TypeName="bd_topModel.tb_tipoContatoFaculdade">
+              <MappingFragment StoreEntitySet="tb_tipoContatoFaculdade">
+                <ScalarProperty Name="tipoContFac_in_id" ColumnName="tipoContFac_in_id" />
+                <ScalarProperty Name="tipoContFac_st_nome" ColumnName="tipoContFac_st_nome" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_usuario">
+            <EntityTypeMapping TypeName="bd_topModel.tb_usuario">
+              <MappingFragment StoreEntitySet="tb_usuario">
+                <ScalarProperty Name="user_in_id" ColumnName="user_in_id" />
+                <ScalarProperty Name="user_st_nome" ColumnName="user_st_nome" />
+                <ScalarProperty Name="user_st_sexo" ColumnName="user_st_sexo" />
+                <ScalarProperty Name="user_dt_dtNasc" ColumnName="user_dt_dtNasc" />
+                <ScalarProperty Name="user_st_username" ColumnName="user_st_username" />
+                <ScalarProperty Name="user_st_senha" ColumnName="user_st_senha" />
+                <ScalarProperty Name="user_st_uf" ColumnName="user_st_uf" />
+                <ScalarProperty Name="user_st_cidade" ColumnName="user_st_cidade" />
+                <ScalarProperty Name="user_in_nivelAcad" ColumnName="user_in_nivelAcad" />
+                <ScalarProperty Name="user_dt_dtCad" ColumnName="user_dt_dtCad" />
+                <ScalarProperty Name="user_bool_fezTeste" ColumnName="user_bool_fezTeste" />
+                <ScalarProperty Name="user_img_avatar" ColumnName="user_img_avatar" />
+                <ScalarProperty Name="user_st_bio" ColumnName="user_st_bio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_contato">
+            <EntityTypeMapping TypeName="bd_topModel.tb_contato">
+              <MappingFragment StoreEntitySet="tb_contato">
+                <ScalarProperty Name="userCont_in_id" ColumnName="userCont_in_id" />
+                <ScalarProperty Name="tipoCont_in_id" ColumnName="tipoCont_in_id" />
+                <ScalarProperty Name="cont_st_desc" ColumnName="cont_st_desc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_contatoFaculdade">
+            <EntityTypeMapping TypeName="bd_topModel.tb_contatoFaculdade">
+              <MappingFragment StoreEntitySet="tb_contatoFaculdade">
+                <ScalarProperty Name="faculCont_in_id" ColumnName="faculCont_in_id" />
+                <ScalarProperty Name="tipoContFacul_in_id" ColumnName="tipoContFacul_in_id" />
+                <ScalarProperty Name="contFacul_st_desc" ColumnName="contFacul_st_desc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_email">
+            <EntityTypeMapping TypeName="bd_topModel.tb_email">
+              <MappingFragment StoreEntitySet="tb_email">
+                <ScalarProperty Name="userEmail_in_id" ColumnName="userEmail_in_id" />
+                <ScalarProperty Name="email_st_desc" ColumnName="email_st_desc" />
+                <ScalarProperty Name="email_bool_receberNoticias" ColumnName="email_bool_receberNoticias" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_RelatorioCurso">
+            <EntityTypeMapping TypeName="bd_topModel.v_RelatorioCurso">
+              <MappingFragment StoreEntitySet="v_RelatorioCurso">
+                <ScalarProperty Name="id_curso" ColumnName="id_curso" />
+                <ScalarProperty Name="nome_curso" ColumnName="nome_curso" />
+                <ScalarProperty Name="desc_curso" ColumnName="desc_curso" />
+                <ScalarProperty Name="desc_area" ColumnName="desc_area" />
+                <ScalarProperty Name="tipo_curso" ColumnName="tipo_curso" />
+                <ScalarProperty Name="imagem_curso" ColumnName="imagem_curso" />
+                <ScalarProperty Name="duracao_curso" ColumnName="duracao_curso" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_relatorioFaculdades">
+            <EntityTypeMapping TypeName="bd_topModel.v_relatorioFaculdades">
+              <MappingFragment StoreEntitySet="v_relatorioFaculdades">
+                <ScalarProperty Name="id_facul" ColumnName="id_facul" />
+                <ScalarProperty Name="nome_facul" ColumnName="nome_facul" />
+                <ScalarProperty Name="endereco_facul" ColumnName="endereco_facul" />
+                <ScalarProperty Name="uf_facul" ColumnName="uf_facul" />
+                <ScalarProperty Name="estado_facul" ColumnName="estado_facul" />
+                <ScalarProperty Name="cidade_facul" ColumnName="cidade_facul" />
+                <ScalarProperty Name="tipoContado_facul" ColumnName="tipoContado_facul" />
+                <ScalarProperty Name="contato_facul" ColumnName="contato_facul" />
+                <ScalarProperty Name="site_facul" ColumnName="site_facul" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_relatorioNotaMec">
+            <EntityTypeMapping TypeName="bd_topModel.v_relatorioNotaMec">
+              <MappingFragment StoreEntitySet="v_relatorioNotaMec">
+                <ScalarProperty Name="id_facul" ColumnName="id_facul" />
+                <ScalarProperty Name="nome_facul" ColumnName="nome_facul" />
+                <ScalarProperty Name="uf_facul" ColumnName="uf_facul" />
+                <ScalarProperty Name="id_curso" ColumnName="id_curso" />
+                <ScalarProperty Name="nome_curso" ColumnName="nome_curso" />
+                <ScalarProperty Name="desc_area" ColumnName="desc_area" />
+                <ScalarProperty Name="valor_notaMec" ColumnName="valor_notaMec" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_RelatorioQuestoes">
+            <EntityTypeMapping TypeName="bd_topModel.v_RelatorioQuestoes">
+              <MappingFragment StoreEntitySet="v_RelatorioQuestoes">
+                <ScalarProperty Name="id_pergunta" ColumnName="id_pergunta" />
+                <ScalarProperty Name="desc_pergunta" ColumnName="desc_pergunta" />
+                <ScalarProperty Name="id_resposta" ColumnName="id_resposta" />
+                <ScalarProperty Name="desc_resposta" ColumnName="desc_resposta" />
+                <ScalarProperty Name="perc_exatas" ColumnName="perc_exatas" />
+                <ScalarProperty Name="perc_humanas" ColumnName="perc_humanas" />
+                <ScalarProperty Name="perc_biologicas" ColumnName="perc_biologicas" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_relatorioResultado">
+            <EntityTypeMapping TypeName="bd_topModel.v_relatorioResultado">
+              <MappingFragment StoreEntitySet="v_relatorioResultado">
+                <ScalarProperty Name="novo_teste" ColumnName="novo_teste" />
+                <ScalarProperty Name="id_user" ColumnName="id_user" />
+                <ScalarProperty Name="username_user" ColumnName="username_user" />
+                <ScalarProperty Name="id_teste" ColumnName="id_teste" />
+                <ScalarProperty Name="inicio_teste" ColumnName="inicio_teste" />
+                <ScalarProperty Name="final_teste" ColumnName="final_teste" />
+                <ScalarProperty Name="tempo_resultado" ColumnName="tempo_resultado" />
+                <ScalarProperty Name="exatas_resultado" ColumnName="exatas_resultado" />
+                <ScalarProperty Name="humanas_resultado" ColumnName="humanas_resultado" />
+                <ScalarProperty Name="biologicas_resultado" ColumnName="biologicas_resultado" />
+                <ScalarProperty Name="nome_curso" ColumnName="nome_curso" />
+                <ScalarProperty Name="desc_curso" ColumnName="desc_curso" />
+                <ScalarProperty Name="tipo_curso" ColumnName="tipo_curso" />
+                <ScalarProperty Name="duracao_curso" ColumnName="duracao_curso" />
+                <ScalarProperty Name="desc_area" ColumnName="desc_area" />
+                <ScalarProperty Name="img_curso" ColumnName="img_curso" />
+                <ScalarProperty Name="nome_facul" ColumnName="nome_facul" />
+                <ScalarProperty Name="estado_facul" ColumnName="estado_facul" />
+                <ScalarProperty Name="site_facul" ColumnName="site_facul" />
+                <ScalarProperty Name="valor_notaMec" ColumnName="valor_notaMec" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_relatorioUsuario">
+            <EntityTypeMapping TypeName="bd_topModel.v_relatorioUsuario">
+              <MappingFragment StoreEntitySet="v_relatorioUsuario">
+                <ScalarProperty Name="id_user" ColumnName="id_user" />
+                <ScalarProperty Name="nome_user" ColumnName="nome_user" />
+                <ScalarProperty Name="desc_email" ColumnName="desc_email" />
+                <ScalarProperty Name="sexo_user" ColumnName="sexo_user" />
+                <ScalarProperty Name="nasc_user" ColumnName="nasc_user" />
+                <ScalarProperty Name="username_user" ColumnName="username_user" />
+                <ScalarProperty Name="uf_user" ColumnName="uf_user" />
+                <ScalarProperty Name="cidade_user" ColumnName="cidade_user" />
+                <ScalarProperty Name="desc_nivelAcad" ColumnName="desc_nivelAcad" />
+                <ScalarProperty Name="desc_tipoCont" ColumnName="desc_tipoCont" />
+                <ScalarProperty Name="desc_cont" ColumnName="desc_cont" />
+                <ScalarProperty Name="dtCad_user" ColumnName="dtCad_user" />
+                <ScalarProperty Name="teste_user" ColumnName="teste_user" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_atualizaCadastro" FunctionName="bd_topModel.Store.sp_atualizaCadastro" />
+          <FunctionImportMapping FunctionImportName="sp_AtualizaCurso" FunctionName="bd_topModel.Store.sp_AtualizaCurso" />
+          <FunctionImportMapping FunctionImportName="sp_atualizaFaculdade" FunctionName="bd_topModel.Store.sp_atualizaFaculdade" />
+          <FunctionImportMapping FunctionImportName="sp_atualizarQuestao" FunctionName="bd_topModel.Store.sp_atualizarQuestao" />
+          <FunctionImportMapping FunctionImportName="sp_inserirContatosFaculdade" FunctionName="bd_topModel.Store.sp_inserirContatosFaculdade" />
+          <FunctionImportMapping FunctionImportName="sp_inserirNovoEmail" FunctionName="bd_topModel.Store.sp_inserirNovoEmail" />
+          <FunctionImportMapping FunctionImportName="sp_inserirNovosContatos" FunctionName="bd_topModel.Store.sp_inserirNovosContatos" />
+          <FunctionImportMapping FunctionImportName="sp_inserirNovoUsuario" FunctionName="bd_topModel.Store.sp_inserirNovoUsuario" />
+          <FunctionImportMapping FunctionImportName="sp_zerarIncrementoTabela" FunctionName="bd_topModel.Store.sp_zerarIncrementoTabela" />
+          <FunctionImportMapping FunctionImportName="sp_iniciarTeste" FunctionName="bd_topModel.Store.sp_iniciarTeste" />
+          <FunctionImportMapping FunctionImportName="sp_novoTeste" FunctionName="bd_topModel.Store.sp_novoTeste" />
+          <FunctionImportMapping FunctionImportName="sp_inserirDetalhesDoResultado" FunctionName="bd_topModel.Store.sp_inserirDetalhesDoResultado" />
+          <FunctionImportMapping FunctionImportName="sp_retornarCursoCompatibilidade" FunctionName="bd_topModel.Store.sp_retornarCursoCompatibilidade" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
