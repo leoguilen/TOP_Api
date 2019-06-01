@@ -164,6 +164,8 @@
     <EntitySetMapping Name="v_RelatorioCurso">
       <EntityTypeMapping TypeName="bd_topModel.v_RelatorioCurso">
         <MappingFragment StoreEntitySet="v_RelatorioCurso">
+          <ScalarProperty Name="valor_min" ColumnName="valor_min" />
+          <ScalarProperty Name="valor_max" ColumnName="valor_max" />
           <ScalarProperty Name="id_curso" ColumnName="id_curso" />
           <ScalarProperty Name="nome_curso" ColumnName="nome_curso" />
           <ScalarProperty Name="desc_curso" ColumnName="desc_curso" />
@@ -273,5 +275,18 @@
     <FunctionImportMapping FunctionImportName="sp_novoTeste" FunctionName="bd_topModel.Store.sp_novoTeste" />
     <FunctionImportMapping FunctionImportName="sp_inserirDetalhesDoResultado" FunctionName="bd_topModel.Store.sp_inserirDetalhesDoResultado" />
     <FunctionImportMapping FunctionImportName="sp_retornarCursoCompatibilidade" FunctionName="bd_topModel.Store.sp_retornarCursoCompatibilidade" />
+    <EntitySetMapping Name="tb_avaliacao">
+      <EntityTypeMapping TypeName="bd_topModel.tb_avaliacao">
+        <MappingFragment StoreEntitySet="tb_avaliacao">
+          <ScalarProperty Name="test_in_id" ColumnName="test_in_id" />
+          <ScalarProperty Name="ava_st_comentario" ColumnName="ava_st_comentario" />
+          <ScalarProperty Name="ava_in_ratings" ColumnName="ava_in_ratings" />
+          <ScalarProperty Name="user_in_id" ColumnName="user_in_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_inserirAvaliacao" FunctionName="bd_topModel.Store.sp_inserirAvaliacao" />
+    <FunctionImportMapping FunctionImportName="sp_inserirResposta" FunctionName="bd_topModel.Store.sp_inserirResposta" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams1" FunctionName="bd_topModel.Store.sp_upgraddiagrams" />
   </EntityContainerMapping>
 </Mapping>

@@ -162,6 +162,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\avaliaController.cs" />
     <Compile Include="Controllers\detalhesResultadoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\resultadoController.cs" />
@@ -184,6 +185,9 @@
       <DependentUpon>m_dbtop.edmx</DependentUpon>
     </Compile>
     <Compile Include="Entity\tb_area.cs">
+      <DependentUpon>m_dbtop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tb_avaliacao.cs">
       <DependentUpon>m_dbtop.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\tb_contato.cs">
@@ -249,6 +253,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Avaliacao.cs" />
     <Compile Include="Models\Contato.cs" />
     <Compile Include="Models\Email.cs" />
     <Compile Include="Models\Pergunta.cs" />

@@ -13,6 +13,19 @@
           <Property Name="area_st_desc" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'bd_top.dbo.tb_avaliacao' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="tb_avaliacao">
+          <Key>
+            <PropertyRef Name="user_in_id" />
+            <PropertyRef Name="test_in_id" />
+            <PropertyRef Name="ava_in_ratings" />
+          </Key>
+          <Property Name="user_in_id" Type="int" Nullable="false" />
+          <Property Name="test_in_id" Type="int" Nullable="false" />
+          <Property Name="ava_in_ratings" Type="int" Nullable="false" />
+          <Property Name="ava_st_comentario" Type="varchar(max)" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'bd_top.dbo.tb_contato' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="tb_contato">
           <Key>
@@ -116,7 +129,7 @@ warning 6002: The table/view 'bd_top.dbo.tb_email' does not have a primary key d
           </Key>
           <Property Name="resp_in_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="perg_in_id" Type="int" Nullable="false" />
-          <Property Name="resp_st_desc" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="resp_st_desc" Type="varchar(max)" Nullable="false" />
           <Property Name="resp_re_resExatas" Type="float" Nullable="false" />
           <Property Name="resp_re_resHumanas" Type="float" Nullable="false" />
           <Property Name="resp_re_resBiologicas" Type="float" Nullable="false" />
@@ -173,6 +186,8 @@ warning 6002: The table/view 'bd_top.dbo.v_RelatorioCurso' does not have a prima
             <PropertyRef Name="desc_area" />
             <PropertyRef Name="tipo_curso" />
             <PropertyRef Name="duracao_curso" />
+            <PropertyRef Name="valor_max" />
+            <PropertyRef Name="valor_min" />
           </Key>
           <Property Name="id_curso" Type="int" Nullable="false" />
           <Property Name="nome_curso" Type="varchar" MaxLength="100" Nullable="false" />
@@ -181,6 +196,8 @@ warning 6002: The table/view 'bd_top.dbo.v_RelatorioCurso' does not have a prima
           <Property Name="tipo_curso" Type="char" MaxLength="2" Nullable="false" />
           <Property Name="imagem_curso" Type="text" />
           <Property Name="duracao_curso" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="valor_max" Type="int" Nullable="false" />
+          <Property Name="valor_min" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'bd_top.dbo.v_relatorioFaculdades' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -463,6 +480,30 @@ warning 6002: The table/view 'bd_top.dbo.v_relatorioUsuario' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_testeId_tb_avaliacao_testeId">
+          <End Role="tb_teste" Type="Self.tb_teste" Multiplicity="1" />
+          <End Role="tb_avaliacao" Type="Self.tb_avaliacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_teste">
+              <PropertyRef Name="teste_in_id" />
+            </Principal>
+            <Dependent Role="tb_avaliacao">
+              <PropertyRef Name="test_in_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserID_tb_avaliacao_tb_usuario_ID">
+          <End Role="tb_usuario" Type="Self.tb_usuario" Multiplicity="1" />
+          <End Role="tb_avaliacao" Type="Self.tb_avaliacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_usuario">
+              <PropertyRef Name="user_in_id" />
+            </Principal>
+            <Dependent Role="tb_avaliacao">
+              <PropertyRef Name="user_in_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_usuario_nivelAcademico">
           <End Role="tb_nivelAcademico" Type="Self.tb_nivelAcademico" Multiplicity="1" />
           <End Role="tb_usuario" Type="Self.tb_usuario" Multiplicity="*" />
@@ -497,6 +538,8 @@ warning 6002: The table/view 'bd_top.dbo.v_relatorioUsuario' does not have a pri
           <Parameter Name="pTipo" Type="char" Mode="In" />
           <Parameter Name="pDuracao" Type="varchar" Mode="In" />
           <Parameter Name="pDesc" Type="text" Mode="In" />
+          <Parameter Name="pMax" Type="int" Mode="In" />
+          <Parameter Name="pMin" Type="int" Mode="In" />
         </Function>
         <Function Name="sp_atualizaFaculdade" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="pId" Type="int" Mode="In" />
@@ -522,6 +565,12 @@ warning 6002: The table/view 'bd_top.dbo.v_relatorioUsuario' does not have a pri
         <Function Name="sp_iniciarTeste" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="pIdUser" Type="int" Mode="In" />
           <Parameter Name="pDataInicio" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="sp_inserirAvaliacao" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pIdUser" Type="int" Mode="In" />
+          <Parameter Name="pIdTest" Type="int" Mode="In" />
+          <Parameter Name="pNumRatings" Type="int" Mode="In" />
+          <Parameter Name="pComentario" Type="varchar(max)" Mode="In" />
         </Function>
         <Function Name="sp_inserirContatosFaculdade" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="pFaculNome" Type="varchar" Mode="In" />
@@ -559,6 +608,13 @@ warning 6002: The table/view 'bd_top.dbo.v_relatorioUsuario' does not have a pri
           <Parameter Name="pImgAvatar" Type="text" Mode="In" />
           <Parameter Name="pBio" Type="text" Mode="In" />
         </Function>
+        <Function Name="sp_inserirResposta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pIdPerg" Type="int" Mode="In" />
+          <Parameter Name="pDescPerg" Type="varchar(max)" Mode="In" />
+          <Parameter Name="pExatas" Type="float" Mode="In" />
+          <Parameter Name="pHumanas" Type="float" Mode="In" />
+          <Parameter Name="pBiologicas" Type="float" Mode="In" />
+        </Function>
         <Function Name="sp_novoTeste" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="pId" Type="int" Mode="In" />
         </Function>
@@ -566,6 +622,7 @@ warning 6002: The table/view 'bd_top.dbo.v_relatorioUsuario' does not have a pri
           <Parameter Name="pDescArea" Type="varchar" Mode="In" />
           <Parameter Name="pValorTotalArea" Type="int" Mode="In" />
         </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="sp_zerarIncrementoTabela" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="pTabela" Type="varchar" Mode="In" />
         </Function>
@@ -582,6 +639,14 @@ warning 6002: The table/view 'bd_top.dbo.v_relatorioUsuario' does not have a pri
           <EntitySet Name="tb_tipoContato" EntityType="Self.tb_tipoContato" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_tipoContatoFaculdade" EntityType="Self.tb_tipoContatoFaculdade" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_usuario" EntityType="Self.tb_usuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_avaliacao" EntityType="Self.tb_avaliacao" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tb_avaliacao].[user_in_id] AS [user_in_id], 
+    [tb_avaliacao].[test_in_id] AS [test_in_id], 
+    [tb_avaliacao].[ava_in_ratings] AS [ava_in_ratings], 
+    [tb_avaliacao].[ava_st_comentario] AS [ava_st_comentario]
+    FROM [dbo].[tb_avaliacao] AS [tb_avaliacao]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="tb_contato" EntityType="Self.tb_contato" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [tb_contato].[userCont_in_id] AS [userCont_in_id], 
@@ -611,7 +676,9 @@ warning 6002: The table/view 'bd_top.dbo.v_relatorioUsuario' does not have a pri
     [v_RelatorioCurso].[desc_area] AS [desc_area], 
     [v_RelatorioCurso].[tipo_curso] AS [tipo_curso], 
     [v_RelatorioCurso].[imagem_curso] AS [imagem_curso], 
-    [v_RelatorioCurso].[duracao_curso] AS [duracao_curso]
+    [v_RelatorioCurso].[duracao_curso] AS [duracao_curso], 
+    [v_RelatorioCurso].[valor_max] AS [valor_max], 
+    [v_RelatorioCurso].[valor_min] AS [valor_min]
     FROM [dbo].[v_RelatorioCurso] AS [v_RelatorioCurso]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="v_relatorioFaculdades" EntityType="Self.v_relatorioFaculdades" store:Type="Views" store:Schema="dbo">
@@ -738,6 +805,14 @@ warning 6002: The table/view 'bd_top.dbo.v_relatorioUsuario' does not have a pri
             <End Role="tb_usuario" EntitySet="tb_usuario" />
             <End Role="tb_teste" EntitySet="tb_teste" />
           </AssociationSet>
+          <AssociationSet Name="FK_testeId_tb_avaliacao_testeId" Association="Self.FK_testeId_tb_avaliacao_testeId">
+            <End Role="tb_teste" EntitySet="tb_teste" />
+            <End Role="tb_avaliacao" EntitySet="tb_avaliacao" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserID_tb_avaliacao_tb_usuario_ID" Association="Self.FK_UserID_tb_avaliacao_tb_usuario_ID">
+            <End Role="tb_usuario" EntitySet="tb_usuario" />
+            <End Role="tb_avaliacao" EntitySet="tb_avaliacao" />
+          </AssociationSet>
           <AssociationSet Name="FK_usuario_nivelAcademico" Association="Self.FK_usuario_nivelAcademico">
             <End Role="tb_nivelAcademico" EntitySet="tb_nivelAcademico" />
             <End Role="tb_usuario" EntitySet="tb_usuario" />
@@ -834,7 +909,7 @@ warning 6002: The table/view 'bd_top.dbo.v_relatorioUsuario' does not have a pri
           </Key>
           <Property Name="resp_in_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="perg_in_id" Type="Int32" Nullable="false" />
-          <Property Name="resp_st_desc" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="resp_st_desc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="resp_re_resExatas" Type="Double" Nullable="false" />
           <Property Name="resp_re_resHumanas" Type="Double" Nullable="false" />
           <Property Name="resp_re_resBiologicas" Type="Double" Nullable="false" />
@@ -851,6 +926,7 @@ warning 6002: The table/view 'bd_top.dbo.v_relatorioUsuario' does not have a pri
           <Property Name="teste_bool_novoTeste" Type="Byte" Nullable="false" />
           <NavigationProperty Name="tb_detalhesResultado" Relationship="Self.FK_detalhesResultado_teste" FromRole="tb_teste" ToRole="tb_detalhesResultado" />
           <NavigationProperty Name="tb_usuario" Relationship="Self.FK_teste_usuario" FromRole="tb_teste" ToRole="tb_usuario" />
+          <NavigationProperty Name="tb_avaliacao" Relationship="bd_topModel.FK_testeId_tb_avaliacao_testeId" FromRole="tb_teste" ToRole="tb_avaliacao" />
         </EntityType>
         <EntityType Name="tb_tipoContato">
           <Key>
@@ -890,6 +966,7 @@ warning 6002: The table/view 'bd_top.dbo.v_relatorioUsuario' does not have a pri
           <NavigationProperty Name="tb_teste" Relationship="Self.FK_teste_usuario" FromRole="tb_usuario" ToRole="tb_teste" />
           <NavigationProperty Name="tb_contato" Relationship="Self.FK_contato_usuario" FromRole="tb_usuario" ToRole="tb_contato" />
           <NavigationProperty Name="tb_email" Relationship="Self.FK_email_usuario" FromRole="tb_usuario" ToRole="tb_email" />
+          <NavigationProperty Name="tb_avaliacao" Relationship="bd_topModel.FK_userId_tb_avaliacao_userId" FromRole="tb_usuario" ToRole="tb_avaliacao" />
         </EntityType>
         <EntityType Name="tb_contato">
           <Key>
@@ -933,6 +1010,8 @@ warning 6002: The table/view 'bd_top.dbo.v_relatorioUsuario' does not have a pri
             <PropertyRef Name="desc_area" />
             <PropertyRef Name="tipo_curso" />
             <PropertyRef Name="duracao_curso" />
+            <PropertyRef Name="valor_max" />
+            <PropertyRef Name="valor_min" />
           </Key>
           <Property Name="id_curso" Type="Int32" Nullable="false" />
           <Property Name="nome_curso" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
@@ -941,6 +1020,8 @@ warning 6002: The table/view 'bd_top.dbo.v_relatorioUsuario' does not have a pri
           <Property Name="tipo_curso" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="imagem_curso" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="duracao_curso" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="valor_max" Type="Int32" Nullable="false" />
+          <Property Name="valor_min" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="v_relatorioFaculdades">
           <Key>
@@ -1323,6 +1404,8 @@ warning 6002: The table/view 'bd_top.dbo.v_relatorioUsuario' does not have a pri
             <Parameter Name="pTipo" Mode="In" Type="String" />
             <Parameter Name="pDuracao" Mode="In" Type="String" />
             <Parameter Name="pDesc" Mode="In" Type="String" />
+            <Parameter Name="pMax" Mode="In" Type="Int32" />
+            <Parameter Name="pMin" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_atualizaFaculdade">
             <Parameter Name="pId" Mode="In" Type="Int32" />
@@ -1419,7 +1502,67 @@ warning 6002: The table/view 'bd_top.dbo.v_relatorioUsuario' does not have a pri
             <Parameter Name="pDescArea" Mode="In" Type="String" />
             <Parameter Name="pValorTotalArea" Mode="In" Type="Int32" />
           </FunctionImport>
+          <EntitySet Name="tb_avaliacao" EntityType="bd_topModel.tb_avaliacao" />
+          <AssociationSet Name="FK_userId_tb_avaliacao_userId" Association="bd_topModel.FK_userId_tb_avaliacao_userId">
+            <End Role="tb_usuario" EntitySet="tb_usuario" />
+            <End Role="tb_avaliacao" EntitySet="tb_avaliacao" />
+          </AssociationSet>
+          <FunctionImport Name="sp_inserirAvaliacao">
+            <Parameter Name="pIdUser" Mode="In" Type="Int32" />
+            <Parameter Name="pIdTest" Mode="In" Type="Int32" />
+            <Parameter Name="pNumRatings" Mode="In" Type="Int32" />
+            <Parameter Name="pComentario" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_inserirResposta">
+            <Parameter Name="pIdPerg" Mode="In" Type="Int32" />
+            <Parameter Name="pDescPerg" Mode="In" Type="String" />
+            <Parameter Name="pExatas" Mode="In" Type="Double" />
+            <Parameter Name="pHumanas" Mode="In" Type="Double" />
+            <Parameter Name="pBiologicas" Mode="In" Type="Double" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams1" />
+          <AssociationSet Name="FK_testeId_tb_avaliacao_testeId" Association="bd_topModel.FK_testeId_tb_avaliacao_testeId">
+            <End Role="tb_teste" EntitySet="tb_teste" />
+            <End Role="tb_avaliacao" EntitySet="tb_avaliacao" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="tb_avaliacao">
+          <Key>
+            <PropertyRef Name="user_in_id" />
+            <PropertyRef Name="ava_in_ratings" />
+            <PropertyRef Name="test_in_id" />
+          </Key>
+          <Property Name="user_in_id" Type="Int32" Nullable="false" />
+          <Property Name="ava_in_ratings" Type="Int32" Nullable="false" />
+          <Property Name="ava_st_comentario" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tb_usuario" Relationship="bd_topModel.FK_userId_tb_avaliacao_userId" FromRole="tb_avaliacao" ToRole="tb_usuario" />
+          <Property Name="test_in_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tb_teste" Relationship="bd_topModel.FK_testeId_tb_avaliacao_testeId" FromRole="tb_avaliacao" ToRole="tb_teste" />
+        </EntityType>
+        <Association Name="FK_userId_tb_avaliacao_userId">
+          <End Type="bd_topModel.tb_usuario" Role="tb_usuario" Multiplicity="1" />
+          <End Type="bd_topModel.tb_avaliacao" Role="tb_avaliacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_usuario">
+              <PropertyRef Name="user_in_id" />
+            </Principal>
+            <Dependent Role="tb_avaliacao">
+              <PropertyRef Name="user_in_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_testeId_tb_avaliacao_testeId">
+          <End Type="bd_topModel.tb_teste" Role="tb_teste" Multiplicity="1" />
+          <End Type="bd_topModel.tb_avaliacao" Role="tb_avaliacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_teste">
+              <PropertyRef Name="teste_in_id" />
+            </Principal>
+            <Dependent Role="tb_avaliacao">
+              <PropertyRef Name="test_in_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1589,6 +1732,8 @@ warning 6002: The table/view 'bd_top.dbo.v_relatorioUsuario' does not have a pri
           <EntitySetMapping Name="v_RelatorioCurso">
             <EntityTypeMapping TypeName="bd_topModel.v_RelatorioCurso">
               <MappingFragment StoreEntitySet="v_RelatorioCurso">
+                <ScalarProperty Name="valor_min" ColumnName="valor_min" />
+                <ScalarProperty Name="valor_max" ColumnName="valor_max" />
                 <ScalarProperty Name="id_curso" ColumnName="id_curso" />
                 <ScalarProperty Name="nome_curso" ColumnName="nome_curso" />
                 <ScalarProperty Name="desc_curso" ColumnName="desc_curso" />
@@ -1698,6 +1843,19 @@ warning 6002: The table/view 'bd_top.dbo.v_relatorioUsuario' does not have a pri
           <FunctionImportMapping FunctionImportName="sp_novoTeste" FunctionName="bd_topModel.Store.sp_novoTeste" />
           <FunctionImportMapping FunctionImportName="sp_inserirDetalhesDoResultado" FunctionName="bd_topModel.Store.sp_inserirDetalhesDoResultado" />
           <FunctionImportMapping FunctionImportName="sp_retornarCursoCompatibilidade" FunctionName="bd_topModel.Store.sp_retornarCursoCompatibilidade" />
+          <EntitySetMapping Name="tb_avaliacao">
+            <EntityTypeMapping TypeName="bd_topModel.tb_avaliacao">
+              <MappingFragment StoreEntitySet="tb_avaliacao">
+                <ScalarProperty Name="test_in_id" ColumnName="test_in_id" />
+                <ScalarProperty Name="ava_st_comentario" ColumnName="ava_st_comentario" />
+                <ScalarProperty Name="ava_in_ratings" ColumnName="ava_in_ratings" />
+                <ScalarProperty Name="user_in_id" ColumnName="user_in_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_inserirAvaliacao" FunctionName="bd_topModel.Store.sp_inserirAvaliacao" />
+          <FunctionImportMapping FunctionImportName="sp_inserirResposta" FunctionName="bd_topModel.Store.sp_inserirResposta" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams1" FunctionName="bd_topModel.Store.sp_upgraddiagrams" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

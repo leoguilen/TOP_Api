@@ -87,7 +87,7 @@
     </Key>
     <Property Name="resp_in_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="perg_in_id" Type="Int32" Nullable="false" />
-    <Property Name="resp_st_desc" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="resp_st_desc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="resp_re_resExatas" Type="Double" Nullable="false" />
     <Property Name="resp_re_resHumanas" Type="Double" Nullable="false" />
     <Property Name="resp_re_resBiologicas" Type="Double" Nullable="false" />
@@ -104,6 +104,7 @@
     <Property Name="teste_bool_novoTeste" Type="Byte" Nullable="false" />
     <NavigationProperty Name="tb_detalhesResultado" Relationship="Self.FK_detalhesResultado_teste" FromRole="tb_teste" ToRole="tb_detalhesResultado" />
     <NavigationProperty Name="tb_usuario" Relationship="Self.FK_teste_usuario" FromRole="tb_teste" ToRole="tb_usuario" />
+    <NavigationProperty Name="tb_avaliacao" Relationship="bd_topModel.FK_testeId_tb_avaliacao_testeId" FromRole="tb_teste" ToRole="tb_avaliacao" />
   </EntityType>
   <EntityType Name="tb_tipoContato">
     <Key>
@@ -143,6 +144,7 @@
     <NavigationProperty Name="tb_teste" Relationship="Self.FK_teste_usuario" FromRole="tb_usuario" ToRole="tb_teste" />
     <NavigationProperty Name="tb_contato" Relationship="Self.FK_contato_usuario" FromRole="tb_usuario" ToRole="tb_contato" />
     <NavigationProperty Name="tb_email" Relationship="Self.FK_email_usuario" FromRole="tb_usuario" ToRole="tb_email" />
+    <NavigationProperty Name="tb_avaliacao" Relationship="bd_topModel.FK_userId_tb_avaliacao_userId" FromRole="tb_usuario" ToRole="tb_avaliacao" />
   </EntityType>
   <EntityType Name="tb_contato">
     <Key>
@@ -186,6 +188,8 @@
       <PropertyRef Name="desc_area" />
       <PropertyRef Name="tipo_curso" />
       <PropertyRef Name="duracao_curso" />
+      <PropertyRef Name="valor_max" />
+      <PropertyRef Name="valor_min" />
     </Key>
     <Property Name="id_curso" Type="Int32" Nullable="false" />
     <Property Name="nome_curso" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
@@ -194,6 +198,8 @@
     <Property Name="tipo_curso" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
     <Property Name="imagem_curso" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="duracao_curso" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="valor_max" Type="Int32" Nullable="false" />
+    <Property Name="valor_min" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="v_relatorioFaculdades">
     <Key>
@@ -576,6 +582,8 @@
       <Parameter Name="pTipo" Mode="In" Type="String" />
       <Parameter Name="pDuracao" Mode="In" Type="String" />
       <Parameter Name="pDesc" Mode="In" Type="String" />
+      <Parameter Name="pMax" Mode="In" Type="Int32" />
+      <Parameter Name="pMin" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="sp_atualizaFaculdade">
       <Parameter Name="pId" Mode="In" Type="Int32" />
@@ -672,5 +680,65 @@
       <Parameter Name="pDescArea" Mode="In" Type="String" />
       <Parameter Name="pValorTotalArea" Mode="In" Type="Int32" />
     </FunctionImport>
+    <EntitySet Name="tb_avaliacao" EntityType="bd_topModel.tb_avaliacao" />
+    <AssociationSet Name="FK_userId_tb_avaliacao_userId" Association="bd_topModel.FK_userId_tb_avaliacao_userId">
+      <End Role="tb_usuario" EntitySet="tb_usuario" />
+      <End Role="tb_avaliacao" EntitySet="tb_avaliacao" />
+    </AssociationSet>
+    <FunctionImport Name="sp_inserirAvaliacao">
+      <Parameter Name="pIdUser" Mode="In" Type="Int32" />
+      <Parameter Name="pIdTest" Mode="In" Type="Int32" />
+      <Parameter Name="pNumRatings" Mode="In" Type="Int32" />
+      <Parameter Name="pComentario" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_inserirResposta">
+      <Parameter Name="pIdPerg" Mode="In" Type="Int32" />
+      <Parameter Name="pDescPerg" Mode="In" Type="String" />
+      <Parameter Name="pExatas" Mode="In" Type="Double" />
+      <Parameter Name="pHumanas" Mode="In" Type="Double" />
+      <Parameter Name="pBiologicas" Mode="In" Type="Double" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams1" />
+    <AssociationSet Name="FK_testeId_tb_avaliacao_testeId" Association="bd_topModel.FK_testeId_tb_avaliacao_testeId">
+      <End Role="tb_teste" EntitySet="tb_teste" />
+      <End Role="tb_avaliacao" EntitySet="tb_avaliacao" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="tb_avaliacao">
+    <Key>
+      <PropertyRef Name="user_in_id" />
+      <PropertyRef Name="ava_in_ratings" />
+      <PropertyRef Name="test_in_id" />
+    </Key>
+    <Property Name="user_in_id" Type="Int32" Nullable="false" />
+    <Property Name="ava_in_ratings" Type="Int32" Nullable="false" />
+    <Property Name="ava_st_comentario" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tb_usuario" Relationship="bd_topModel.FK_userId_tb_avaliacao_userId" FromRole="tb_avaliacao" ToRole="tb_usuario" />
+    <Property Name="test_in_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tb_teste" Relationship="bd_topModel.FK_testeId_tb_avaliacao_testeId" FromRole="tb_avaliacao" ToRole="tb_teste" />
+  </EntityType>
+  <Association Name="FK_userId_tb_avaliacao_userId">
+    <End Type="bd_topModel.tb_usuario" Role="tb_usuario" Multiplicity="1" />
+    <End Type="bd_topModel.tb_avaliacao" Role="tb_avaliacao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_usuario">
+        <PropertyRef Name="user_in_id" />
+      </Principal>
+      <Dependent Role="tb_avaliacao">
+        <PropertyRef Name="user_in_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_testeId_tb_avaliacao_testeId">
+    <End Type="bd_topModel.tb_teste" Role="tb_teste" Multiplicity="1" />
+    <End Type="bd_topModel.tb_avaliacao" Role="tb_avaliacao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_teste">
+        <PropertyRef Name="teste_in_id" />
+      </Principal>
+      <Dependent Role="tb_avaliacao">
+        <PropertyRef Name="test_in_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

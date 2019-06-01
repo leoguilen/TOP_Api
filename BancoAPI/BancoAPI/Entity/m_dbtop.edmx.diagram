@@ -40,6 +40,9 @@
         <AssociationConnector Association="bd_topModel.FK_contatoFaculdade_tipoContatoFaculdade" ManuallyRouted="false" />
         <AssociationConnector Association="bd_topModel.FK_contato_usuario" ManuallyRouted="false" />
         <AssociationConnector Association="bd_topModel.FK_email_usuario" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="bd_topModel.tb_avaliacao" Width="1.5" PointX="5.25" PointY="17.375" />
+        <AssociationConnector Association="bd_topModel.FK_userId_tb_avaliacao_userId" />
+        <AssociationConnector Association="bd_topModel.FK_testeId_tb_avaliacao_testeId" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

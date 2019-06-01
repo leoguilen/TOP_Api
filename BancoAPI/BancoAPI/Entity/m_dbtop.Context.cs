@@ -48,6 +48,7 @@ namespace BancoAPI.Entity
         public virtual DbSet<v_RelatorioQuestoes> v_RelatorioQuestoes { get; set; }
         public virtual DbSet<v_relatorioResultado> v_relatorioResultado { get; set; }
         public virtual DbSet<v_relatorioUsuario> v_relatorioUsuario { get; set; }
+        public virtual DbSet<tb_avaliacao> tb_avaliacao { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {
@@ -111,7 +112,7 @@ namespace BancoAPI.Entity
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_atualizaCadastro", puserIdParameter, pemailDescParameter, pnivelAcadParameter, pcidadeParameter, pufParameter, pcontDescTelParameter, pcontDescCelParameter, pftuserParameter, pbioParameter);
         }
     
-        public virtual int sp_AtualizaCurso(Nullable<int> pIdCur, Nullable<int> pIdArea, string pNome, string pTipo, string pDuracao, string pDesc)
+        public virtual int sp_AtualizaCurso(Nullable<int> pIdCur, Nullable<int> pIdArea, string pNome, string pTipo, string pDuracao, string pDesc, Nullable<int> pMax, Nullable<int> pMin)
         {
             var pIdCurParameter = pIdCur.HasValue ?
                 new ObjectParameter("pIdCur", pIdCur) :
@@ -137,7 +138,15 @@ namespace BancoAPI.Entity
                 new ObjectParameter("pDesc", pDesc) :
                 new ObjectParameter("pDesc", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_AtualizaCurso", pIdCurParameter, pIdAreaParameter, pNomeParameter, pTipoParameter, pDuracaoParameter, pDescParameter);
+            var pMaxParameter = pMax.HasValue ?
+                new ObjectParameter("pMax", pMax) :
+                new ObjectParameter("pMax", typeof(int));
+    
+            var pMinParameter = pMin.HasValue ?
+                new ObjectParameter("pMin", pMin) :
+                new ObjectParameter("pMin", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_AtualizaCurso", pIdCurParameter, pIdAreaParameter, pNomeParameter, pTipoParameter, pDuracaoParameter, pDescParameter, pMaxParameter, pMinParameter);
         }
     
         public virtual int sp_atualizaFaculdade(Nullable<int> pId, string pNome, string pEnd, string pUf, string pEstado, string pCidade, string pSite, string pEmail, string pTel, string pCel, string pFax)
@@ -471,6 +480,57 @@ namespace BancoAPI.Entity
                 new ObjectParameter("pValorTotalArea", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_retornarCursoCompatibilidade", pDescAreaParameter, pValorTotalAreaParameter);
+        }
+    
+        public virtual int sp_inserirAvaliacao(Nullable<int> pIdUser, Nullable<int> pIdTest, Nullable<int> pNumRatings, string pComentario)
+        {
+            var pIdUserParameter = pIdUser.HasValue ?
+                new ObjectParameter("pIdUser", pIdUser) :
+                new ObjectParameter("pIdUser", typeof(int));
+    
+            var pIdTestParameter = pIdTest.HasValue ?
+                new ObjectParameter("pIdTest", pIdTest) :
+                new ObjectParameter("pIdTest", typeof(int));
+    
+            var pNumRatingsParameter = pNumRatings.HasValue ?
+                new ObjectParameter("pNumRatings", pNumRatings) :
+                new ObjectParameter("pNumRatings", typeof(int));
+    
+            var pComentarioParameter = pComentario != null ?
+                new ObjectParameter("pComentario", pComentario) :
+                new ObjectParameter("pComentario", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_inserirAvaliacao", pIdUserParameter, pIdTestParameter, pNumRatingsParameter, pComentarioParameter);
+        }
+    
+        public virtual int sp_inserirResposta(Nullable<int> pIdPerg, string pDescPerg, Nullable<double> pExatas, Nullable<double> pHumanas, Nullable<double> pBiologicas)
+        {
+            var pIdPergParameter = pIdPerg.HasValue ?
+                new ObjectParameter("pIdPerg", pIdPerg) :
+                new ObjectParameter("pIdPerg", typeof(int));
+    
+            var pDescPergParameter = pDescPerg != null ?
+                new ObjectParameter("pDescPerg", pDescPerg) :
+                new ObjectParameter("pDescPerg", typeof(string));
+    
+            var pExatasParameter = pExatas.HasValue ?
+                new ObjectParameter("pExatas", pExatas) :
+                new ObjectParameter("pExatas", typeof(double));
+    
+            var pHumanasParameter = pHumanas.HasValue ?
+                new ObjectParameter("pHumanas", pHumanas) :
+                new ObjectParameter("pHumanas", typeof(double));
+    
+            var pBiologicasParameter = pBiologicas.HasValue ?
+                new ObjectParameter("pBiologicas", pBiologicas) :
+                new ObjectParameter("pBiologicas", typeof(double));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_inserirResposta", pIdPergParameter, pDescPergParameter, pExatasParameter, pHumanasParameter, pBiologicasParameter);
+        }
+    
+        public virtual int sp_upgraddiagrams1()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams1");
         }
     }
 }

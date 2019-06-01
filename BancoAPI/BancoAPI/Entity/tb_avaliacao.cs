@@ -12,16 +12,14 @@ namespace BancoAPI.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class v_RelatorioCurso
+    public partial class tb_avaliacao
     {
-        public int id_curso { get; set; }
-        public string nome_curso { get; set; }
-        public string desc_curso { get; set; }
-        public string desc_area { get; set; }
-        public string tipo_curso { get; set; }
-        public string imagem_curso { get; set; }
-        public string duracao_curso { get; set; }
-        public int valor_max { get; set; }
-        public int valor_min { get; set; }
+        public int user_in_id { get; set; }
+        public int ava_in_ratings { get; set; }
+        public string ava_st_comentario { get; set; }
+        public int test_in_id { get; set; }
+    
+        public virtual tb_usuario tb_usuario { get; set; }
+        public virtual tb_teste tb_teste { get; set; }
     }
 }

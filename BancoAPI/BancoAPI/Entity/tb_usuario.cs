@@ -21,6 +21,7 @@ namespace BancoAPI.Entity
             this.tb_teste = new HashSet<tb_teste>();
             this.tb_contato = new HashSet<tb_contato>();
             this.tb_email = new HashSet<tb_email>();
+            this.tb_avaliacao = new HashSet<tb_avaliacao>();
         }
     
         public int user_in_id { get; set; }
@@ -46,5 +47,7 @@ namespace BancoAPI.Entity
         public virtual ICollection<tb_contato> tb_contato { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tb_email> tb_email { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tb_avaliacao> tb_avaliacao { get; set; }
     }
 }
